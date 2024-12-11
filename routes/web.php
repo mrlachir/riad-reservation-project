@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 // hello this test of adding from another divice mohammed lachir
 Route::get('/', function () {
-    return view('bars\DashboardOverview');
+    return view('bars\ManageActivities');
 });
 
 Route::get('/dashboard', function () {
