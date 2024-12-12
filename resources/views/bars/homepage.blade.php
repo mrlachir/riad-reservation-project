@@ -210,7 +210,8 @@ body {
             <img src="https://via.placeholder.com/1920x800" alt="Riad Image">
             <div class="overlay">
                 <h2>A peaceful escape in the heart of Marrakech</h2>
-                <a href="/rooms" class="btn btn-register">Explore Rooms</a>
+                <a href="{{ route('room.listings') }}" class="btn btn-register">Go to Rooms Page</a>
+
             </div>
         </div>
     </section>
@@ -223,22 +224,22 @@ body {
                 <img src="https://via.placeholder.com/350x250" alt="Room 1">
                 <h3>Deluxe Room</h3>
                 <p>Enjoy luxury and comfort in our spacious deluxe room.</p>
-                <a href="/rooms/1" class="btn btn-register">Book Now</a>
+                <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
             </div>
             <div class="room-card">
                 <img src="https://via.placeholder.com/350x250" alt="Room 2">
                 <h3>Royal Suite</h3>
                 <p>Indulge in royal comfort with a beautiful view of Marrakech.</p>
-                <a href="/rooms/2" class="btn btn-register">Book Now</a>
+                <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
             </div>
             <div class="room-card">
                 <img src="https://via.placeholder.com/350x250" alt="Room 3">
                 <h3>Garden View</h3>
                 <p>Relax in our serene garden view room surrounded by nature.</p>
-                <a href="/rooms/3" class="btn btn-register">Book Now</a>
+                <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
             </div>
         </div>
-        <a href="/rooms" class="btn btn-register">Discover More Rooms</a>
+        <a href="{{ route('room.listings') }}" class="btn btn-register">Discover More Rooms</a>
     </section>
 
     <!-- Featured Activities Section -->
@@ -249,7 +250,7 @@ body {
                 <img src="https://via.placeholder.com/350x250" alt="Spa">
                 <h3>Relaxing Spa</h3>
                 <p>Rejuvenate your senses with a calming spa experience.</p>
-                <a href="/activities/spa" class="btn btn-register">Learn More</a>
+                <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
             </div>
             <div class="activity-card">
                 <img src="https://via.placeholder.com/350x250" alt="Tours">
