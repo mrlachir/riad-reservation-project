@@ -144,15 +144,15 @@
         </div>
 
         <ul class="navbar-menu">
-            <li><a href="/">Home</a></li>
-            <li><a href="/rooms">Rooms</a></li>
-            <li><a href="/activities">Activities</a></li>
+            <li><a href="{{route('home.page')}}">Home</a></li>
+            <li><a href="{{route('room.listings')}}">Rooms</a></li>
+            <li><a href="{{route('activities.listings')}}">Activities</a></li>
         </ul>
 
         <div class="navbar-auth">
-            <a href="/login" class="btn btn-login">Login</a>
-            <a href="/register" class="btn btn-register">Register</a>
-            <a href="/profile" class="btn btn-register">Profile</a>
+            <a href="{{route('Login')}}" class="btn btn-login">Login</a>
+            <a href="{{route('registration.page')}}" class="btn btn-register">Register</a>
+            <a href="{{route('profile.page')}}" class="btn btn-register">Profile</a>
         </div>
     </nav>
 

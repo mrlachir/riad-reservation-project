@@ -73,7 +73,7 @@ header p {
 }
 
 .activity-card img {
-    width: 100%;
+    width: 75%;
     height: 200px;
     object-fit: cover;
     border-radius: 10px;
@@ -151,37 +151,37 @@ footer p {
         <div class="activity-cards">
             <!-- Activity Card 1 -->
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Spa">
+                <img src="https://www.riadadore.com/pure-riads/img/riad-adore/the-riad/the-riad-02.jpg" alt="Spa">
                 <h3>Relaxing Spa</h3>
-                <p>Unwind with a rejuvenating spa treatment designed to relax your body and mind.</p>
+                <p>Escape into tranquility with a luxurious wellness treatment that nurtures both body and soul.</p>
                 <p class="price">$50 per person</p>
                 <p class="booking-info">Availability: Daily, 10:00 AM - 6:00 PM</p>
-                <a href="/activities/spa" class="btn btn-learn-more">Learn More</a>
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
 
             <!-- Activity Card 2 -->
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Cultural Tour">
+                <img src="https://elegantculturaltours.com/wp-content/uploads/2022/02/Morocco-Elegant-Grand-Tour-post-image-4.jpg" alt="Cultural Tour">
                 <h3>Cultural Tour</h3>
                 <p>Take a guided tour to explore the rich history and vibrant culture of Marrakech.</p>
                 <p class="price">$30 per person</p>
                 <p class="booking-info">Availability: Mon-Sat, 9:00 AM - 3:00 PM</p>
-                <a href="/activities/tours" class="btn btn-learn-more">Learn More</a>
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
 
             <!-- Activity Card 3 -->
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Cooking Class">
+                <img src="https://coloredmorocco.com/wp-content/uploads/2015/07/cooking-class-marrakech-tajine-tagine-morocco.jpg" alt="Cooking Class">
                 <h3>Moroccan Cooking Class</h3>
                 <p>Learn how to cook authentic Moroccan dishes in a hands-on, interactive class.</p>
                 <p class="price">$40 per person</p>
                 <p class="booking-info">Availability: Tuesdays & Thursdays, 4:00 PM - 7:00 PM</p>
-                <a href="/activities/cooking" class="btn btn-learn-more">Book Now</a>
+                <a href="/activities/cooking" class="btn btn-learn-more">Learn more</a>
             </div>
 
             <!-- Activity Card 4 -->
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Yoga Retreat">
+                <img src="https://www.ilove-marrakech.com/blog/wp-content/uploads/2024/03/Looking-for-the-Best-Yoga-and-Wellness-Retreats-in-Marrakech-1.png" alt="Yoga Retreat">
                 <h3>Yoga Retreat</h3>
                 <p>Join our peaceful yoga retreat to connect with nature and restore your balance.</p>
                 <p class="price">$80 per session</p>

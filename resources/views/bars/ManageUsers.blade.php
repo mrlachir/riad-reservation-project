@@ -3,210 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Bookings</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>User Management - Riad Theme</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
+        :root {
+            --primary-color: #6A4C3B;
+            --secondary-color: #D4B483;
+            --background-color: #F1E4D3;
+            --text-color: #2C2A29;
+            --mosaic-pattern: linear-gradient(
+                45deg, 
+                rgba(106, 76, 59, 0.1) 25%, 
+                transparent 25%, 
+                transparent 50%, 
+                rgba(106, 76, 59, 0.1) 50%, 
+                rgba(106, 76, 59, 0.1) 75%, 
+                transparent 75%, 
+                transparent
+            );
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
 
-        /* Body Styling */
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Lora', serif;
+            background-color: var(--background-color);
+            background-image: var(--mosaic-pattern);
+            background-size: 40px 40px;
+            color: var(--text-color);
             line-height: 1.6;
-            background-color: #f9f5f0;
-            color: #4a4a4a;
-            padding: 20px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
+        .dashboard {
+            max-width: 900px;
+            margin: 2rem auto;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(106, 76, 59, 0.2);
+            overflow: hidden;
+            border: 3px solid var(--primary-color);
         }
 
-        h1 {
-            text-align: center;
-            font-family: 'Cormorant Garamond', serif;
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        .filter-section {
+        .dashboard-header {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            position: relative;
         }
 
-        .filter-section select {
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+        .dashboard-header::before,
+        .dashboard-header::after {
+            content: '';
+            position: absolute;
+            background-color: var(--secondary-color);
+            height: 5px;
         }
 
-        .booking-list {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
+        .dashboard-header::before {
+            top: 0;
+            left: 0;
+            width: 100%;
         }
 
-        .booking-card {
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .dashboard-header::after {
+            bottom: 0;
+            left: 0;
+            width: 100%;
         }
 
-        .booking-card h3 {
-            font-family: 'Cormorant Garamond', serif;
-            color: #2c3e50;
-            margin-bottom: 10px;
+        .dashboard-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            letter-spacing: 2px;
         }
 
-        .booking-card p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
+        .user-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
         }
 
-        .booking-card .actions {
-            display: flex;
-            gap: 10px;
+        .user-table th, .user-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--secondary-color);
         }
 
-        .booking-card .actions button {
-            padding: 8px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            font-family: 'Montserrat', sans-serif;
+        .user-table th {
+            background-color: rgba(212, 180, 131, 0.2);
+            font-weight: bold;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .booking-card .actions .approve-btn {
+        .status {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+        }
+
+        .status-pending {
+            background-color: #FFC107;
+            color: var(--text-color);
+        }
+
+        .status-active {
             background-color: #4CAF50;
             color: white;
         }
 
-        .booking-card .actions .cancel-btn {
-            background-color: #f44336;
+        .status-blocked {
+            background-color: #F44336;
             color: white;
         }
 
-        .booking-card .actions .modify-btn {
-            background-color: #2196F3;
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Lora', serif;
+            font-size: 1em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-approve {
+            background-color: var(--primary-color);
+            color: var(--background-color);
+        }
+
+        .btn-block {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+        }
+
+        .btn-remove {
+            background-color: #F44336;
             color: white;
         }
 
-        .booking-card .actions button:hover {
+        .btn:hover {
             opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 3px solid var(--primary-color);
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard {
+                margin: 1rem;
+                border-radius: 10px;
+            }
+
+            .user-table {
+                font-size: 0.9em;
+            }
+        }
+
+        /* Decorative geometric pattern */
+        .dashboard-header::after {
+            background: repeating-linear-gradient(
+                45deg,
+                var(--secondary-color),
+                var(--secondary-color) 10px,
+                transparent 10px,
+                transparent 20px
+            );
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Manage Bookings</h1>
-
-        <div class="filter-section">
-            <select id="filterDate">
-                <option value="">Filter by Date</option>
-                <option value="today">Today</option>
-                <option value="week">This Week</option>
-                <option value="month">This Month</option>
-            </select>
-
-            <select id="filterRoomType">
-                <option value="">Filter by Room Type</option>
-                <option value="single">Single Room</option>
-                <option value="double">Double Room</option>
-                <option value="suite">Suite</option>
-            </select>
-
-            <select id="filterStatus">
-                <option value="">Filter by Status</option>
-                <option value="upcoming">Upcoming</option>
-                <option value="completed">Completed</option>
-                <option value="canceled">Canceled</option>
-            </select>
+    <div class="dashboard">
+        <div class="dashboard-header">
+            <h1>User Management</h1>
         </div>
+        <table class="user-table">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>john_doe</td>
+                    <td>john@example.com</td>
+                    <td><span class="status status-pending">Pending</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-approve">Approve</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>jane_smith</td>
+                    <td>jane@example.com</td>
+                    <td><span class="status status-active">Active</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-block">Block</button>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>bob_miller</td>
+                    <td>bob@example.com</td>
+                    <td><span class="status status-blocked">Blocked</span></td>
+                    <td>
+                        <div class="action-buttons">
+                            <button class="btn btn-remove">Remove</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-        <div class="booking-list" id="bookingList">
-            <!-- Booking cards dynamically inserted here -->
+    <div class="modal" id="confirmModal">
+        <div class="modal-content">
+            <h2>Confirm Action</h2>
+            <p id="modalMessage">Are you sure?</p>
+            <div class="modal-buttons">
+                <button class="btn btn-block" onclick="closeModal()">Cancel</button>
+                <button class="btn btn-remove" onclick="confirmAction()">Confirm</button>
+            </div>
         </div>
     </div>
 
     <script>
-        const bookingList = document.getElementById('bookingList');
-
-        // Sample Data for Bookings
-        const bookings = [
-            {
-                id: 1,
-                name: "John Doe",
-                date: "2024-12-12",
-                roomType: "Suite",
-                status: "Upcoming",
-            },
-            {
-                id: 2,
-                name: "Jane Smith",
-                date: "2024-12-10",
-                roomType: "Double",
-                status: "Completed",
-            },
-            {
-                id: 3,
-                name: "Alice Johnson",
-                date: "2024-12-15",
-                roomType: "Single",
-                status: "Canceled",
-            },
-        ];
-
-        // Function to Render Bookings
-        function renderBookings() {
-            bookingList.innerHTML = '';
-            bookings.forEach((booking) => {
-                const card = document.createElement('div');
-                card.classList.add('booking-card');
-
-                card.innerHTML = `
-                    <h3>Booking for ${booking.name}</h3>
-                    <p>Date: ${booking.date}</p>
-                    <p>Room Type: ${booking.roomType}</p>
-                    <p>Status: ${booking.status}</p>
-                    <div class="actions">
-                        <button class="approve-btn">Approve</button>
-                        <button class="cancel-btn">Cancel</button>
-                        <button class="modify-btn">Modify</button>
-                    </div>
-                `;
-
-                // Add Event Listeners for Actions
-                card.querySelector('.approve-btn').addEventListener('click', () => {
-                    alert(`Approved booking for ${booking.name}`);
-                });
-
-                card.querySelector('.cancel-btn').addEventListener('click', () => {
-                    alert(`Canceled booking for ${booking.name}`);
-                });
-
-                card.querySelector('.modify-btn').addEventListener('click', () => {
-                    alert(`Modify booking for ${booking.name}`);
-                });
-
-                bookingList.appendChild(card);
-            });
+        function showModal(message) {
+            const modal = document.getElementById('confirmModal');
+            const modalMessage = document.getElementById('modalMessage');
+            modalMessage.textContent = message;
+            modal.style.display = 'flex';
         }
 
-        // Initial Render
-        renderBookings();
+        function closeModal() {
+            const modal = document.getElementById('confirmModal');
+            modal.style.display = 'none';
+        }
+
+        function confirmAction() {
+            console.log('Action confirmed');
+            closeModal();
+        }
+
+        document.querySelectorAll('.btn-approve').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showModal('Are you sure you want to approve this user?');
+            });
+        });
+
+        document.querySelectorAll('.btn-block').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showModal('Are you sure you want to block this user?');
+            });
+        });
+
+        document.querySelectorAll('.btn-remove').forEach(btn => {
+            btn.addEventListener('click', () => {
+                showModal('Are you sure you want to remove this user?');
+            });
+        });
     </script>
 </body>
 </html>
