@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 // hello this test of adding from another device mohammed lachir
 Route::get('/', function () {
     return view('bars.HomePage');
-})->name('home.manag');
+})->name('home.page');
 
 Route::get('/About', function () {
     return view('bars.AboutUsPage');
@@ -58,9 +58,6 @@ Route::get('/home/page', function () {
     return view('bars.homepage');
 })->name('home.page');
 
-Route::get('/login', function () {
-    return view('bars.LoginPage');
-})->name('login');
 
 Route::get('/manage/activities', function () {
     return view('bars.ManageActivities');

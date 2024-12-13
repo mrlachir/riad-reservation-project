@@ -256,7 +256,7 @@ body {
                 <img src="https://via.placeholder.com/350x250" alt="Tours">
                 <h3>Cultural Tours</h3>
                 <p>Explore the rich history and culture of Marrakech with our guided tours.</p>
-                <a href="/activities/tours" class="btn btn-register">Learn More</a>
+                <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
             </div>
         </div>
     </section>
