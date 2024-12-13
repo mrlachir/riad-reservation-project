@@ -78,7 +78,7 @@
                             </select>
                         </div>
                     </div>
-                    <button class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300">
+                    <button href="{{route('')}}" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300">
                         Book Now
                     </button>
                 </form>
@@ -122,7 +122,7 @@
         <div class="mb-12">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="section-title text-2xl font-bold text-gray-800">Guest Reviews</h2>
-                <button class="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
+                <button href="{{route('')}}" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
                     Write a Review
                 </button>
             </div>

@@ -150,7 +150,7 @@
         </ul>
 
         <div class="navbar-auth">
-            <a href="{{route('Login')}}" class="btn btn-login">Login</a>
+            <a href="{{route('login')}}" class="btn btn-login">Login</a>
             <a href="{{route('registration.page')}}" class="btn btn-register">Register</a>
             <a href="{{route('profile.page')}}" class="btn btn-register">Profile</a>
         </div>
