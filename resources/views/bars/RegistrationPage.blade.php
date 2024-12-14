@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,139 +8,146 @@
     <title>Register - Riad</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <style>
         /* General Body Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f7f7f7;
-    color: #333;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-/* Registration Container */
-.register-container {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    max-width: 450px;
-    width: 100%;
-    padding: 40px;
-    background-image: url('https://www.example.com/your-riad-pattern.jpg'); /* Optional Moroccan pattern */
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
+        /* Registration Container */
+        .register-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            padding: 40px;
+            background-image: url('https://www.example.com/your-riad-pattern.jpg');
+            /* Optional Moroccan pattern */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
 
-/* Form Title */
-.register-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    color: #2a2a2a;
-    text-align: center;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
+        /* Form Title */
+        .register-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #2a2a2a;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
 
-/* Form Styles */
-.form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+        /* Form Styles */
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-/* Form Groups */
-.form-group {
-    margin-bottom: 20px;
-}
+        /* Form Groups */
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-/* Labels */
-.form-group label {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #5d3d27; /* Terracotta color */
-}
+        /* Labels */
+        .form-group label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #5d3d27;
+            /* Terracotta color */
+        }
 
-/* Input Fields */
-.form-group input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    font-size: 1rem;
-    color: #333;
-    background-color: #f4f4f4;
-}
+        /* Input Fields */
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            color: #333;
+            background-color: #f4f4f4;
+        }
 
-.form-group input:focus {
-    outline: none;
-    border-color: #1f6a7b; /* Moroccan Blue */
-}
+        .form-group input:focus {
+            outline: none;
+            border-color: #1f6a7b;
+            /* Moroccan Blue */
+        }
 
-/* Terms and Conditions Checkbox */
-.form-group input[type="checkbox"] {
-    margin-right: 8px;
-}
+        /* Terms and Conditions Checkbox */
+        .form-group input[type="checkbox"] {
+            margin-right: 8px;
+        }
 
-.form-group a {
-    color: #1f6a7b; /* Moroccan Blue */
-    text-decoration: none;
-}
+        .form-group a {
+            color: #1f6a7b;
+            /* Moroccan Blue */
+            text-decoration: none;
+        }
 
-.form-group a:hover {
-    text-decoration: underline;
-}
+        .form-group a:hover {
+            text-decoration: underline;
+        }
 
-/* Register Button */
-.register-btn {
-    background-color: #1f6a7b; /* Moroccan Blue */
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
+        /* Register Button */
+        .register-btn {
+            background-color: #1f6a7b;
+            /* Moroccan Blue */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
 
-.register-btn:hover {
-    background-color: #004d5b; /* Darker Blue on hover */
-}
+        .register-btn:hover {
+            background-color: #004d5b;
+            /* Darker Blue on hover */
+        }
 
-/* Login Link */
-.login-link {
-    text-align: center;
-    margin-top: 15px;
-}
+        /* Login Link */
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
 
-.login-link p {
-    font-size: 1rem;
-}
+        .login-link p {
+            font-size: 1rem;
+        }
 
-.login-link a {
-    color: #1f6a7b;
-    text-decoration: none;
-}
+        .login-link a {
+            color: #1f6a7b;
+            text-decoration: none;
+        }
 
-.login-link a:hover {
-    text-decoration: underline;
-}
+        .login-link a:hover {
+            text-decoration: underline;
+        }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .register-container {
-        padding: 30px;
-    }
-    .register-title {
-        font-size: 2rem;
-    }
-}
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .register-container {
+                padding: 30px;
+            }
 
+            .register-title {
+                font-size: 2rem;
+            }
+        }
     </style>
     <div class="register-container">
         <div class="register-form">
@@ -190,4 +198,5 @@ body {
         </div>
     </div>
 </body>
+
 </html>
