@@ -6,7 +6,7 @@
     <title>Contact Us - Riad Booking</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Main Content -->
@@ -18,32 +18,40 @@
             <div class="footer-section">
                 <h3 class="footer-heading">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/rooms">Rooms</a></li>
-                    <li><a href="/about">About Us</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                    <li><a href="/privacy-policy">Privacy Policy</a></li>
-                    <li><a href="/terms-conditions">Terms & Conditions</a></li>
+                    <li><a href='/'>Home</a></li>
+                    <li><a href="/room/page">Rooms</a></li>
+                    <li><a href="/About">About Us</a></li>
+                    <li><a href="/Contact/us/Page">Contact Us</a></li>
+                    
                 </ul>
             </div>
 
             <!-- Social Media Links -->
-            <div class="footer-section social-box">
+            <div class="footer-section">
                 <h3 class="footer-heading">Follow Us</h3>
-                <div class="footer-social-links">
-                    <a href="https://facebook.com" class="social-link" aria-label="Follow us on Facebook">
-                        <img src = https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/800px-Facebook_logo_%28square%29.png alt = facebook>
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://instagram.com" class="social-link" aria-label="Follow us on Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://twitter.com" class="social-link" aria-label="Follow us on Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="https://linkedin.com" class="social-link" aria-label="Follow us on LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                <div class="social-menu">
+                    <ul>
+                        <li>
+                            <a href="https://github.com/yourusername" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub Logo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://instagram.com/yourusername" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://facebook.com/yourusername" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Facebook_icon.svg" alt="Facebook Logo">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/yourusername" target="_blank">
+                                <img src="https://logowik.com/content/uploads/images/twitter-x5265.logowik.com.webp" alt="Twitter Logo">
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
@@ -143,38 +151,41 @@
         }
 
         /* Social Links Box */
-        .social-box {
-            background: linear-gradient(135deg, #f8c038, #ff8c00);
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .footer-social-links {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .social-link {
-            font-size: 40px;
-            color: #fff;
-            background-color: #333;
-            border-radius: 50%;
-            padding: 15px;
-            width: 70px;
-            height: 70px;
+        .social-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             justify-content: center;
+            gap: 15px; /* Spacing between items */
+        }
+
+        .social-menu ul li {
+            display: inline-block;
+        }
+
+        .social-menu ul li a {
+            display: flex;
             align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #333; /* Background color */
+            text-decoration: none;
+            overflow: hidden; /* Ensures circular borders are clean */
             transition: all 0.3s ease;
         }
 
-        .social-link:hover {
-            color: #f8c038;
-            background-color: #fff;
-            transform: scale(1.2);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .social-menu ul li a:hover {
+            background: #555; /* Lighter background on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        .social-menu ul li a img {
+            width: 30px; /* Adjust logo size */
+            height: 30px;
+            object-fit: contain;
         }
 
         /* Footer Bottom */
@@ -188,16 +199,8 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .footer-social-links {
-                flex-direction: column;
-                align-items: center;
-                gap: 15px;
-            }
-
-            .social-link {
-                font-size: 35px;
-                width: 60px;
-                height: 60px;
+            .footer-container {
+                grid-template-columns: 1fr;
             }
 
             .footer-heading {

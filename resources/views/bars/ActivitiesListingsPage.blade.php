@@ -27,7 +27,7 @@ body {
 /* Header Section */
 header {
     text-align: center;
-    padding: 3rem 0;
+    padding: 1rem 0;
     background-color: #b18f2a;
     color: white;
 }
@@ -141,21 +141,19 @@ footer p {
 
     <!-- Header Section -->
     <header>
-        <h1>Explore Our Activities</h1>
-        <p>Discover exciting activities during your stay at our Riad</p>
+        <h1>Activities</h1>
     </header>
 
     <!-- Activities Section -->
     <section class="activities">
-        <h2>Featured Activities</h2>
         <div class="activity-cards">
             <!-- Activity Card 1 -->
             <div class="activity-card">
                 <img src="https://www.riadadore.com/pure-riads/img/riad-adore/the-riad/the-riad-02.jpg" alt="Spa">
                 <h3>Relaxing Spa</h3>
-                <p>Escape into tranquility with a luxurious wellness treatment that nurtures both body and soul.</p>
-                <p class="price">$50 per person</p>
-                <p class="booking-info">Availability: Daily, 10:00 AM - 6:00 PM</p>
+                <!-- <p>Escape into tranquility with a luxurious wellness treatment that nurtures both body and soul.</p> -->
+                <!-- <p class="price">$50 per person</p>
+                <p class="booking-info">Availability: Daily, 10:00 AM - 6:00 PM</p> -->
                 <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
 
@@ -163,9 +161,9 @@ footer p {
             <div class="activity-card">
                 <img src="https://elegantculturaltours.com/wp-content/uploads/2022/02/Morocco-Elegant-Grand-Tour-post-image-4.jpg" alt="Cultural Tour">
                 <h3>Cultural Tour</h3>
-                <p>Take a guided tour to explore the rich history and vibrant culture of Marrakech.</p>
-                <p class="price">$30 per person</p>
-                <p class="booking-info">Availability: Mon-Sat, 9:00 AM - 3:00 PM</p>
+                <!-- <p>Take a guided tour to explore the rich history and vibrant culture of Marrakech.</p> -->
+                <!-- <p class="price">$30 per person</p>
+                <p class="booking-info">Availability: Mon-Sat, 9:00 AM - 3:00 PM</p> -->
                 <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
 
@@ -173,20 +171,19 @@ footer p {
             <div class="activity-card">
                 <img src="https://coloredmorocco.com/wp-content/uploads/2015/07/cooking-class-marrakech-tajine-tagine-morocco.jpg" alt="Cooking Class">
                 <h3>Moroccan Cooking Class</h3>
-                <p>Learn how to cook authentic Moroccan dishes in a hands-on, interactive class.</p>
-                <p class="price">$40 per person</p>
-                <p class="booking-info">Availability: Tuesdays & Thursdays, 4:00 PM - 7:00 PM</p>
-                <a href="/activities/cooking" class="btn btn-learn-more">Learn more</a>
+                <!-- <p>Learn how to cook authentic Moroccan dishes in a hands-on, interactive class.</p> -->
+                <!-- <p class="price">$40 per person</p>
+                <p class="booking-info">Availability: Tuesdays & Thursdays, 4:00 PM - 7:00 PM</p> -->
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn more</a>
             </div>
 
             <!-- Activity Card 4 -->
             <div class="activity-card">
                 <img src="https://www.ilove-marrakech.com/blog/wp-content/uploads/2024/03/Looking-for-the-Best-Yoga-and-Wellness-Retreats-in-Marrakech-1.png" alt="Yoga Retreat">
                 <h3>Yoga Retreat</h3>
-                <p>Join our peaceful yoga retreat to connect with nature and restore your balance.</p>
-                <p class="price">$80 per session</p>
-                <p class="booking-info">Availability: Every Weekend, 7:00 AM - 9:00 AM</p>
-                <a href="/activities/yoga" class="btn btn-learn-more">Learn More</a>
+                <!-- <p class="price">$80 per session</p>
+                <p class="booking-info">Availability: Every Weekend, 7:00 AM - 9:00 AM</p> -->
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
         </div>
     </section>
