@@ -104,6 +104,10 @@ Route::get('/sidebar', function () {
     return view('bars.SidebarMenu');
 })->name('sidebar');
 
+Route::get('/confirmmation', function () {
+    return view('bars.confirmmation');
+})->name('confirmmation');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
