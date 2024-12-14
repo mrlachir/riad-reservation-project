@@ -1,3 +1,5 @@
+@include('bars.navigationBare')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,10 +262,7 @@
     <!-- Room cards will be dynamically added here -->
 </section>
 
-<!-- Footer Section -->
-<footer>
-    <p>&copy; 2024 Riad Booking. All rights reserved.</p>
-</footer>
+
 
 <script>
     const roomsData = [
@@ -320,3 +319,4 @@
 
 </body>
 </html>
+@include('bars.Footer')

@@ -1,340 +1,243 @@
+@include('bars.navigationBare')
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Room Details</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> <!-- External stylesheet link -->
-</head>
-<body>
+    <title>Activity Details - Riad Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-/* Body and Font Settings */
-body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    background-color: #f9f5f0;
-    color: #4a4a4a;
-}
-
-/* Room Info Section */
-.room-info {
-    padding: 4rem 7%;
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.room-info .room-details {
-    display: flex;
-    gap: 30px;
-}
-
-.room-info .room-images {
-    flex: 1;
-}
-
-.room-info .room-images img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.room-info .room-description {
-    flex: 1.5;
-    max-width: 500px;
-}
-
-.room-info h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-.room-info .price {
-    font-size: 1.5rem;
-    color: #b18f2a;
-    margin: 10px 0;
-}
-
-.room-info .description {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.room-info h3 {
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-.room-info ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.room-info li {
-    font-size: 1rem;
-    margin: 5px 0;
-}
-
-.room-info .availability {
-    font-size: 1.2rem;
-    margin-top: 10px;
-}
-
-.room-info .rating {
-    font-size: 1.2rem;
-    margin-top: 20px;
-}
-
-/* Booking Section */
-.booking {
-    padding: 3rem 7%;
-    text-align: center;
-}
-
-.booking form {
-    max-width: 400px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.booking input[type="date"] {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.booking button {
-    padding: 10px 20px;
-    background-color: #b18f2a;
-    color: white;
-    font-size: 1rem;
-    border-radius: 30px;
-    border: none;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.booking button:hover {
-    background-color: #9f7d24;
-}
-
-/* Review Section */
-.review-section {
-    padding: 3rem 7%;
-    background-color: #f9f5f0;
-    text-align: center;
-}
-
-.review-section form {
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-}
-
-.review-section textarea {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    resize: vertical;
-}
-
-.review-section select {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-}
-
-.review-section button {
-    padding: 10px 20px;
-    background-color: #b18f2a;
-    color: white;
-    font-size: 1rem;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-}
-
-.review-section button:hover {
-    background-color: #9f7d24;
-}
-
-/* Recommended Activities Section */
-.recommended-activities {
-    padding: 4rem 7%;
-    text-align: center;
-}
-
-.recommended-activities h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-.activity-cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.activity-card {
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-.activity-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
-.activity-card h3 {
-    font-size: 1.5rem;
-    margin: 15px 0;
-}
-
-.activity-card p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-}
-
-.activity-card .btn-learn-more {
-    padding: 10px 20px;
-    background-color: #2c3e50;
-    color: white;
-    font-size: 1rem;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.activity-card .btn-learn-more:hover {
-    background-color: #1a252f;
-}
-
-/* Footer Section */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #2c3e50;
-    color: white;
-}
-
-footer p {
-    font-size: 1rem;
-}
-
+        a {
+            text-decoration: none; /* Removes underline */
+            color: inherit; /* Inherits color from the parent element */
+            background: none; /* Removes any background */
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
     </style>
+</head>
+<body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Activity Header -->
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <!-- Image Gallery -->
+<div class="space-y-6 max-w-4xl mx-auto">
+    <!-- Main Image Section -->
+    <div class="main-image">
+        <img id="mainImage" src="https://coloredmorocco.com/wp-content/uploads/2015/07/cooking-class-marrakech-tajine-tagine-morocco.jpg" alt="Activity Main Image" class="w-full h-96 object-cover rounded-lg shadow-lg transform transition-transform duration-300 ease-in-out">
+    </div>
 
-    <!-- Room Info Section -->
-    <section class="room-info">
-        <div class="room-details">
-            <div class="room-images">
-                <img src="https://via.placeholder.com/800x600" alt="Room Image 1">
-                <img src="https://via.placeholder.com/800x600" alt="Room Image 2">
-                <img src="https://via.placeholder.com/800x600" alt="Room Image 3">
+    <!-- Additional Images Section -->
+    <div class="additional-images grid grid-cols-3 gap-6">
+        <!-- Small Image 1 -->
+        <div class="image-item">
+            <img src="https://coloredmorocco.com/wp-content/uploads/2015/07/cooking-class-marrakech-tajine-tagine-morocco.jpg" alt="Additional Image 1" class="small-image w-full h-32 object-cover rounded-lg shadow-lg transform transition-transform duration-200 ease-in-out hover:scale-105 cursor-pointer" onclick="changeMainImage(this)">
+        </div>
+        
+        <!-- Small Image 2 -->
+        <div class="image-item">
+            <img src="https://coloredmorocco.com/wp-content/uploads/2015/07/cooking-class-marrakech-tajine-tagine-morocco.jpg" alt="Additional Image 2" class="small-image w-full h-32 object-cover rounded-lg shadow-lg transform transition-transform duration-200 ease-in-out hover:scale-105 cursor-pointer" onclick="changeMainImage(this)">
+        </div>
+
+        <!-- Small Image 3 -->
+        <div class="image-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRYIHOP9kyl133oln2ehNm0IVBShBTzXqegbg&s" alt="Additional Image 3" class="small-image w-full h-32 object-cover rounded-lg shadow-lg transform transition-transform duration-200 ease-in-out hover:scale-105 cursor-pointer" onclick="changeMainImage(this)">
+        </div>
+    </div>
+</div>
+
+<script>
+    function changeMainImage(thumbnail) {
+        // Get the main image element
+        const mainImage = document.getElementById("mainImage");
+
+        // Change the source of the main image to the clicked thumbnail's source
+        mainImage.src = thumbnail.src;
+    }
+</script>
+
+
+            <!-- Activity Information -->
+            <div>
+                <h1 class="section-title text-3xl font-bold text-gray-800 mb-4">Moroccan Cooking Class</h1>
+                
+                <div class="activity-details space-y-4">
+                    <p class="text-gray-600">Learn the art of traditional Moroccan cuisine in an intimate, hands-on cooking experience. Discover secret family recipes and culinary techniques passed down through generations.</p>
+                    
+                    <div class="flex items-center space-x-4">
+                        <div class="flex items-center space-x-2">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                            <span class="text-gray-700">4.8 (120 Reviews)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="price-section">
+                        <span class="text-2xl font-bold text-green-600">$75</span>
+                        <span class="text-gray-500 ml-2">Per night</span>
+                    </div>
+                </div>
+
+                <!-- Booking Form -->
+                <form class="booking-form mt-6 bg-white p-6 rounded-lg shadow-md">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-gray-700 mb-2">Check in</label>
+                            <input type="date" class="w-full px-3 py-2 border rounded-md">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 mb-2">Check out</label>
+                            <input type="date" class="w-full px-3 py-2 border rounded-md">
+                        </div>
+                    </div>
+                    <a href="{{route('confirmmation')}}">
+                        <input value="Book Now" type="button" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300"/>
+                    </a>
+                    <a href="{{route('confirmmation')}}">
+                        <input value="Not available" type="button" style="background-color: #ccc; cursor: not-allowed;" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300"/>
+                    </a>
+                </form>
+                <!-- What's Included -->
+        <div class="mt-12 mb-12">
+            <h2 class="section-title text-2xl font-bold text-gray-800 mb-4">Features</h2>
+
+            <span class="space-y-2 text-gray-600">
+                Balkon | 
+            </span>
+            <span class="space-y-2 text-gray-600">
+                Balkon | 
+            </span>
+            <span class="space-y-2 text-gray-600">
+                Balkon | 
+            </span>
+            <span class="space-y-2 text-gray-600">
+                Balkon | 
+            </span>
+            
+        </div>
+
             </div>
-            <div class="room-description">
-                <h1>Deluxe Room</h1>
-                <p class="price">$150 per night</p>
-                <p class="description">Our Deluxe Room offers a spacious and comfortable environment, featuring elegant furnishings and modern amenities for a luxurious stay.</p>
-                <h3>Features:</h3>
-                <ul>
-                    <li>King-size bed</li>
-                    <li>Private bathroom with a jacuzzi</li>
-                    <li>Air conditioning</li>
-                    <li>Free WiFi</li>
-                    <li>Flat-screen TV</li>
-                </ul>
-                <p class="availability">Availability: <strong>Available</strong></p>
-                <div class="rating">
-                    <span>⭐⭐⭐⭐⭐</span>
-                    <p>4.8/5 - Based on 120 reviews</p>
+        </div>
+
+        
+       <!-- Reviews Section -->
+       <div id="reviews" class="mb-12">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="section-title text-2xl font-bold text-gray-800">Guest Reviews</h2>
+                <button id="writeReviewBtn" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
+                    Write a Review
+                </button>
+            </div>
+
+            <!-- Write Review Form -->
+            <div id="writeReviewForm" class="hidden bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-gray-800 mb-4">Share Your Experience</h3>
+                <form>
+                    <!-- <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Your Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="Enter your name">
+                    </div> -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Rating</label>
+                        <select class="w-full px-3 py-2 border rounded-md">
+                            <option>5 - Excellent</option>
+                            <option>4 - Good</option>
+                            <option>3 - Average</option>
+                            <option>2 - Poor</option>
+                            <option>1 - Terrible</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Your Review</label>
+                        <textarea class="w-full px-3 py-2 border rounded-md" rows="4" placeholder="Write your review..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-600 transition duration-300">
+                        Submit Review
+                    </button>
+                </form>
+                <script>
+                    document.getElementById('writeReviewBtn').addEventListener('click', function() {
+                        const form = document.getElementById('writeReviewForm');
+                        if (form.classList.contains('hidden')) {
+                            form.classList.remove('hidden');
+                        } else {
+                            form.classList.add('hidden');
+                        }
+                    });
+                </script>
+            </div>
+
+            <!-- Review Cards -->
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <img src="https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                            <div class="flex">
+                                5.0
+                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">An incredible experience! The instructor was knowledgeable and made cooking so enjoyable. I learned techniques I'll definitely use at home.</p>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Booking Section -->
-    <section class="booking">
-        <h2>Book Your Stay</h2>
-        <form action="/book" method="post">
-            <label for="check-in">Check-in Date:</label>
-            <input type="date" id="check-in" name="check-in" required>
-            <label for="check-out">Check-out Date:</label>
-            <input type="date" id="check-out" name="check-out" required>
-            <button type="submit" class="btn btn-book-now">Book Now</button>
-        </form>
-    </section>
+        <!-- Recommended Activities -->
+        <div>
+            <h2 class="section-title text-2xl font-bold text-gray-800 mb-6">Recommended Activities</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Recommended Activity 1 -->
+                <a href="{{ route('activity.page') }}">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://www.riadadore.com/pure-riads/img/riad-adore/the-riad/the-riad-02.jpg" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Relaxing Spa</h3>
 
-    <!-- Make a Review Section -->
-    <section class="review-section">
-        <h2>Leave a Review</h2>
-        <form action="/submit-review" method="post">
-            <label for="review">Your Review:</label>
-            <textarea id="review" name="review" rows="4" placeholder="Write your review here..." required></textarea>
-            <label for="rating">Your Rating:</label>
-            <select id="rating" name="rating" required>
-                <option value="1">1 Star</option>
-                <option value="2">2 Stars</option>
-                <option value="3">3 Stars</option>
-                <option value="4">4 Stars</option>
-                <option value="5">5 Stars</option>
-            </select>
-            <button type="submit" class="btn btn-submit-review">Submit Review</button>
-        </form>
-    </section>
+                    </div>
+                </div>
+                </a>
 
-    <!-- Recommended Activities Section -->
-    <section class="recommended-activities">
-        <h2>Recommended Activities</h2>
-        <div class="activity-cards">
-            <div class="activity-card">
-                <img src="https://th.bing.com/th/id/OIP.aqf23yeCRd81xiItnO-i4gHaEM?rs=1&pid=ImgDetMain" alt="Spa">
-                <h3>Spa & Wellness</h3>
-                <p>Relax with a soothing massage or spa treatment to unwind after a long day.</p>
-                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
-            </div>
-            <div class="activity-card">
-                <img src="https://ourrealmorocco.com/wp-content/uploads/2018/08/Marrakesh-tour-1.jpg" alt="City Tour">
-                <h3>Cultural City Tour</h3>
-                <p>Explore the history and beauty of the city on a guided tour through the old town.</p>
-                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
-            </div>
-            <div class="activity-card">
-                <img src="https://www.moroccohappinesstours.com/photos/activity-moroccan-cooking-class-in-the-medina-of-marrakech/04.jpg" alt="Cooking Class">
-                <h3>Moroccan Cooking Class</h3>
-                <p>Learn how to prepare delicious Moroccan dishes in an interactive cooking class.</p>
-                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
+                <!-- Recommended Activity 2 -->
+                 <a href="{{ route('activity.page') }}">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://elegantculturaltours.com/wp-content/uploads/2022/02/Morocco-Elegant-Grand-Tour-post-image-4.jpg" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Cultural tour</h3>
+                    </div>
+                </div>
+                </a>
+
+                <!-- Recommended Activity 3 -->
+                <a href="{{ route('activity.page') }}" >
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://www.ilove-marrakech.com/blog/wp-content/uploads/2024/03/Looking-for-the-Best-Yoga-and-Wellness-Retreats-in-Marrakech-1.png" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-800 mb-2">Yoga Retreat</h3>
+                    </div>
+                </div>
+                </a>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Riad Booking. All rights reserved.</p>
-    </footer>
+    
 
+
+        
 </body>
 </html>
+
+@include('bars.Footer')

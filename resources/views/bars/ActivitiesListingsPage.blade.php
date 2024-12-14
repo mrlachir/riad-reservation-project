@@ -1,3 +1,6 @@
+@include('bars.navigationBare')
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,10 +191,8 @@ footer p {
         </div>
     </section>
 
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2024 Riad Booking. All rights reserved.</p>
-    </footer>
+
 
 </body>
 </html>
+@include('bars.Footer')
