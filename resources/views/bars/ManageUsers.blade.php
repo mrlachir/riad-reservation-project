@@ -104,7 +104,7 @@
             letter-spacing: 1px;
         }
 
-        .status {
+        .role {
             display: inline-block;
             padding: 5px 12px;
             border-radius: 20px;
@@ -114,19 +114,14 @@
             letter-spacing: 1px;
         }
 
-        .status-pending {
-            background-color: #FFC107;
-            color: var(--text-color);
-        }
-
-        .status-active {
+        .role-admin {
             background-color: #4CAF50;
             color: white;
         }
 
-        .status-blocked {
-            background-color: #F44336;
-            color: white;
+        .role-user {
+            background-color: #FFC107;
+            color: var(--text-color);
         }
 
         .action-buttons {
@@ -147,17 +142,12 @@
             letter-spacing: 1px;
         }
 
-        .btn-approve {
+        .btn-edit {
             background-color: var(--primary-color);
             color: var(--background-color);
         }
 
-        .btn-block {
-            background-color: var(--secondary-color);
-            color: var(--text-color);
-        }
-
-        .btn-remove {
+        .btn-delete {
             background-color: #F44336;
             color: white;
         }
@@ -208,16 +198,6 @@
             }
         }
 
-        /* Decorative geometric pattern */
-        .dashboard-header::after {
-            background: repeating-linear-gradient(
-                45deg,
-                var(--secondary-color),
-                var(--secondary-color) 10px,
-                transparent 10px,
-                transparent 20px
-            );
-        }
     </style>
 </head>
 <body>
@@ -225,12 +205,12 @@
         <div class="dashboard-header">
             <h1>User Management</h1>
         </div>
-        <table class="user-table">
+        <table class="user-table" id="userTable">
             <thead>
                 <tr>
                     <th>Username</th>
                     <th>Email</th>
-                    <th>Status</th>
+                    <th>Role</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -238,30 +218,22 @@
                 <tr>
                     <td>john_doe</td>
                     <td>john@example.com</td>
-                    <td><span class="status status-pending">Pending</span></td>
+                    <td><span class="role role-admin">Admin</span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-approve">Approve</button>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
                         </div>
                     </td>
                 </tr>
                 <tr>
                     <td>jane_smith</td>
                     <td>jane@example.com</td>
-                    <td><span class="status status-active">Active</span></td>
+                    <td><span class="role role-user">User</span></td>
                     <td>
                         <div class="action-buttons">
-                            <button class="btn btn-block">Block</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>bob_miller</td>
-                    <td>bob@example.com</td>
-                    <td><span class="status status-blocked">Blocked</span></td>
-                    <td>
-                        <div class="action-buttons">
-                            <button class="btn btn-remove">Remove</button>
+                            <button class="btn btn-edit">Edit</button>
+                            <button class="btn btn-delete">Delete</button>
                         </div>
                     </td>
                 </tr>
@@ -275,7 +247,7 @@
             <p id="modalMessage">Are you sure?</p>
             <div class="modal-buttons">
                 <button class="btn btn-block" onclick="closeModal()">Cancel</button>
-                <button class="btn btn-remove" onclick="confirmAction()">Confirm</button>
+                <button class="btn btn-delete" onclick="confirmAction()">Confirm</button>
             </div>
         </div>
     </div>
@@ -298,21 +270,30 @@
             closeModal();
         }
 
-        document.querySelectorAll('.btn-approve').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showModal('Are you sure you want to approve this user?');
+        document.querySelectorAll('.btn-edit').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const currentRole = row.querySelector('.role');
+                const newRole = currentRole.textContent === 'Admin' ? 'User' : 'Admin';
+                
+                currentRole.textContent = newRole;
+                if (newRole === 'Admin') {
+                    currentRole.className = 'role role-admin';
+                } else {
+                    currentRole.className = 'role role-user';
+                }
             });
         });
 
-        document.querySelectorAll('.btn-block').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showModal('Are you sure you want to block this user?');
-            });
-        });
-
-        document.querySelectorAll('.btn-remove').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showModal('Are you sure you want to remove this user?');
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showModal('Are you sure you want to delete this user?');
+                const row = this.closest('tr');
+                const modalConfirm = document.querySelector('.btn-delete');
+                modalConfirm.addEventListener('click', () => {
+                    row.remove();
+                    closeModal();
+                });
             });
         });
     </script>
