@@ -11,6 +11,14 @@
             padding: 0;
             box-sizing: border-box;
         }
+        a {
+        text-decoration: none;
+        /* Removes underline */
+        color: inherit;
+        /* Inherits color from the parent element */
+        background: none;
+        /* Removes any background */
+    }
 
         body {
             font-family: 'Montserrat', sans-serif;
@@ -38,9 +46,12 @@
 
         /* Table Styling */
         table {
-            width: 100%;
+            width: 80%;
             border-collapse: collapse;
             margin-top: 20px;
+            margin-left: 10%;
+
+            
         }
 
         table th, table td {
@@ -62,11 +73,6 @@
             font-size: 0.9rem;
             font-family: 'Montserrat', sans-serif;
             margin-right: 5px;
-        }
-
-        .actions .show-btn {
-            background-color: #4caf50;
-            color: white;
         }
 
         .actions .edit-btn {
@@ -102,34 +108,55 @@
 
         .modal-content {
             background-color: #fff;
-            padding: 2rem;
-            width: 400px;
-            border-radius: 8px;
+            padding: 2.5rem;
+            width: 450px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .modal input, .modal textarea {
             width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-radius: 5px;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
             border: 1px solid #ccc;
             font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal input:focus, .modal textarea:focus {
+            border-color: #2196F3;
+            outline: none;
         }
 
         .modal button {
             background-color: #d4af37;
             border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
             color: white;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-add {
+            background-color: #d4af37;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         .modal button:hover {
             background-color: #b18f2a;
         }
-
+        
     </style>
 </head>
 <body>
@@ -140,24 +167,23 @@
     </header>
 
     <!-- Activity List Table -->
-    <section>
+    <section >
         <table id="activityTable">
             <thead>
                 <tr>
+                    <th>Profile Photo</th>
                     <th>Activity Name</th>
                     <th>Description</th>
-                    <th>Price</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
                 <!-- Example row, repeat for each activity -->
                 <tr>
+                    <td><img src="profile1.jpg" alt="Profile Photo" style="width:50px; height:50px; border-radius:50%;"></td>
                     <td>Cooking Class</td>
                     <td>Join us for an exclusive cooking class with local chefs!</td>
-                    <td>$80 per person</td>
                     <td class="actions">
-                        <button class="show-btn">Show</button>
                         <button class="edit-btn">Edit</button>
                         <button class="delete-btn">Delete</button>
                     </td>
@@ -174,61 +200,106 @@
             <form id="activityForm">
                 <input type="text" placeholder="Activity Name" id="activityName" required>
                 <textarea placeholder="Description" id="activityDescription" required></textarea>
-                <input type="number" placeholder="Price" id="activityPrice" required>
-                <input type="datetime-local" id="activityDate" required>
+                <input type="file" id="activityPhoto" accept="image/*" required>
                 <button type="submit">Save Activity</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Show Add Activity Modal
-        document.getElementById('addActivityBtn').addEventListener('click', function() {
-            document.getElementById('activityModal').style.display = 'flex';
-            document.getElementById('modalTitle').textContent = 'Add Activity';
-            document.getElementById('activityForm').reset();
-        });
+    // Show Add Activity Modal
+    document.getElementById('addActivityBtn').addEventListener('click', function () {
+        document.getElementById('activityModal').style.display = 'flex';
+        document.getElementById('modalTitle').textContent = 'Add Activity';
+        document.getElementById('activityForm').reset();
+    });
 
-        // Close Modal
-        document.querySelector('.modal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                this.style.display = 'none';
-            }
-        });
+    // Close Modal
+    document.querySelector('.modal').addEventListener('click', function (e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+        }
+    });
 
-        // Submit the activity form (Add/Edit)
-        document.getElementById('activityForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Logic to save or update the activity (e.g., API call)
-            alert('Activity saved successfully!');
+    // Submit the activity form (Add/Edit)
+    document.getElementById('activityForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Get input values
+        const activityName = document.getElementById('activityName').value;
+        const activityDescription = document.getElementById('activityDescription').value;
+        const activityPhotoInput = document.getElementById('activityPhoto');
+
+        // Validate photo upload
+        if (!activityPhotoInput.files.length) {
+            alert('Please upload a photo.');
+            return;
+        }
+
+        // Create a new FileReader to read the image file
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imageSrc = e.target.result; // Base64 encoded image
+
+            // Create a new row in the table
+            const newRow = `
+                <tr>
+                    <td><img src="${imageSrc}" alt="Profile Photo" style="width:50px; height:50px; border-radius:50%;"></td>
+                    <td>${activityName}</td>
+                    <td>${activityDescription}</td>
+                    <td class="actions">
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+            `;
+
+            // Append the new row to the table body
+            document.querySelector('#activityTable tbody').insertAdjacentHTML('beforeend', newRow);
+
+            // Add event listeners for the new buttons
+            addEventListenersToButtons();
+
+            // Close the modal
             document.getElementById('activityModal').style.display = 'none';
-        });
+        };
 
-        // Show, Edit and Delete Activity Logic
-        const showBtns = document.querySelectorAll('.show-btn');
-        showBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Showing activity details...');
-            });
-        });
+        // Read the uploaded file as a Data URL
+        reader.readAsDataURL(activityPhotoInput.files[0]);
+    });
 
+    // Add event listeners for Edit and Delete buttons
+    function addEventListenersToButtons() {
         const editBtns = document.querySelectorAll('.edit-btn');
         editBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                alert('Edit activity logic here...');
-                // Populate the form fields and open the modal for editing
+            btn.addEventListener('click', function () {
+                const row = this.closest('tr');
+                const activityName = row.cells[1].textContent;
+                const activityDescription = row.cells[2].textContent;
+
+                // Populate the form fields for editing
+                document.getElementById('activityName').value = activityName;
+                document.getElementById('activityDescription').value = activityDescription;
+
+                // Open the modal
                 document.getElementById('activityModal').style.display = 'flex';
+                document.getElementById('modalTitle').textContent = 'Edit Activity';
             });
         });
 
         const deleteBtns = document.querySelectorAll('.delete-btn');
         deleteBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 if (confirm('Are you sure you want to delete this activity?')) {
-                    this.closest('tr').remove(); // Remove the activity row
+                    this.closest('tr').remove();
                 }
             });
         });
-    </script>
+    }
+
+    // Initialize event listeners for existing buttons
+    addEventListenersToButtons();
+</script>
+
 </body>
 </html>
