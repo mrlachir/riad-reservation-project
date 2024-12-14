@@ -175,7 +175,7 @@
             <div class="space-y-4">
                 <div class="bg-white p-6 rounded-lg shadow-md">
                     <div class="flex items-center mb-4">
-                        <img src="https://img.freepik.com/free-photo/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair_285396-896.jpg?semt=ais_hybrid" class="w-12 h-12 rounded-full mr-4">
+                        <img src="https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png" class="w-12 h-12 rounded-full mr-4">
                         <div>
                             <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
                             <div class="flex">

@@ -25,7 +25,7 @@
         <!-- Profile Header -->
         <div class="bg-white rounded-lg shadow-md p-6 mb-12">
             <div class="flex items-center space-x-6">
-                <img src="/api/placeholder/100/100" alt="User Avatar" class="w-24 h-24 rounded-full shadow-lg">
+                <img src="https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png" alt="User Avatar" class="w-24 h-24 rounded-full shadow-lg">
                 <div>
                     <h1 class="text-3xl font-bold text-gray-800">John Doe</h1>
                     <p class="text-lg text-gray-600">Welcome back! Here's an overview of your profile.</p>
