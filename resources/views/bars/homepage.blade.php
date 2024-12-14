@@ -48,13 +48,22 @@ body {
     font-weight: 700;
 }
 
-.overlay .btn-register {
+.btn-register {
     font-size: 1rem;
     padding: 12px 30px;
     border-radius: 30px;
-    background-color: #b18f2a;
+    color:rgb(0, 0, 0);
+    background-color:rgb(226, 182, 51);
     margin-top: 20px;
 }
+/* .overlay .btn-register {
+    font-size: 1rem;
+    padding: 12px 30px;
+    border-radius: 30px;
+    color:rgb(0, 0, 0);
+    background-color: #b18f2a;
+    margin-top: 20px;
+} */
 
 /* Featured Rooms Section */
 .featured-rooms {
@@ -200,7 +209,15 @@ body {
 .footer p {
     font-size: 1rem;
 }
-
+a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits color from the parent element */
+  background: none; /* Removes any background */
+}
+.discover-more {
+    text-align: center;
+    margin-top: 30px;
+}
 </style>
 <body>
 
@@ -210,7 +227,7 @@ body {
             <img src="https://sf1.mariefranceasia.com/wp-content/uploads/sites/7/2018/03/marrakech-nira.jpg" alt="Riad Image">
             <div class="overlay">
                 <h2>A peaceful escape in the heart of Marrakech</h2>
-                <a href="{{ route('room.listings') }}" class="btn btn-register">Go to Rooms Page</a>
+                <a href="{{ route('room.listings') }}" class="btn btn-register">Explore Our Rooms</a>
 
             </div>
         </div>
@@ -236,10 +253,16 @@ body {
                 <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/494340449.jpg?k=6329668db8ad5b0158874e92172066581a807025ce1f67f1e24e2b481d8aa207&o=&hp=1" alt="Room 3">
                 <h3>Garden View</h3>
                 <p>Relax in our serene garden view room surrounded by nature.</p>
-                <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
+                <a href="{{ route('room.page') }}" class=" btn-register">
+                    Book Now
+                </a>
             </div>
         </div>
-        <a href="{{ route('room.listings') }}" class="btn btn-register">Discover More Rooms</a>
+        <div class="discover-more">
+            <a href="{{ route('room.listings') }}" class="discover-more-btn">Discover More Rooms</a>
+        </div>
+
+
     </section>
 
     <!-- Featured Activities Section -->
@@ -249,17 +272,27 @@ body {
             <div class="activity-card">
                 <img src="https://www.riad-sindibad.com/wp-content/uploads/2020/10/DSC_1801.jpg" alt="Spa">
                 <h3>Relaxing Spa</h3>
-                <p>Rejuvenate your senses with a calming spa experience.</p>
-                <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
+                <p>Rejuvenate your senses with a calming spa experience of Marrakech with our guided tours.</p>
+                <a href="{{ route('activity.page') }}" class="btn btn-register">Learn more...</a>
             </div>
             <div class="activity-card">
                 <img src="https://www.gboomoroccotours.com/wp-content/uploads/2020/10/241032722_2956237934645201_3699360125521303792_n.jpg" alt="Tours">
                 <h3>Cultural Tours</h3>
                 <p>Explore the rich history and culture of Marrakech with our guided tours.</p>
-                <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
+                <a href="{{ route('activity.page') }}" class="btn btn-register">Learn more...</a>
             </div>
         </div>
+        <div class="discover-more">
+            <a href="{{ route('room.listings') }}" class="discover-more-btn">Discover More Activities</a>
+        </div>
     </section>
+
+
+
+
+
+
+
 
     <!-- Featured Reviews Section -->
     <section class="featured-reviews">
