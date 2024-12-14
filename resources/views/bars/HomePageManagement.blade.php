@@ -170,6 +170,30 @@
             <label for="ctaLink">CTA Button Link</label>
             <input type="url" id="ctaLink" name="ctaLink" placeholder="Enter CTA button link" value="/rooms">
 
+            <label for="activitiesSelection">Select 2 Activities</label>
+            <select id="activitiesSelection" name="activities" multiple size="2">
+                <option value="activity1">Activity 1</option>
+                <option value="activity2">Activity 2</option>
+                <option value="activity3">Activity 3</option>
+                <option value="activity4">Activity 4</option>
+            </select>
+
+            <label for="roomsSelection">Select 3 Rooms</label>
+            <select id="roomsSelection" name="rooms" multiple size="3">
+                <option value="room1">Room 1</option>
+                <option value="room2">Room 2</option>
+                <option value="room3">Room 3</option>
+                <option value="room4">Room 4</option>
+            </select>
+
+            <label for="reviewsSelection">Select 4 Reviews</label>
+            <select id="reviewsSelection" name="reviews" multiple size="4">
+                <option value="review1">Review 1</option>
+                <option value="review2">Review 2</option>
+                <option value="review3">Review 3</option>
+                <option value="review4">Review 4</option>
+            </select>
+
             <button type="submit" class="btn-submit">Save Changes</button>
         </form>
     </section>
