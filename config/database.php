@@ -89,8 +89,19 @@ return [
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
-            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
-            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
+        'oracle' => [
+            'driver'        => 'oracle',
+            'tns'           => env('DB_TNS', ''),
+            'host'          => env('DB_HOST', '127.0.0.1'),
+            'port'          => env('DB_PORT', '1521'),
+            'database'      => env('DB_DATABASE', 'xe'),
+            'username'      => env('DB_USERNAME', 'laravel_user'),
+            'password'      => env('DB_PASSWORD', 'mypassword'),
+            'charset'       => 'AL32UTF8',
+            'prefix'        => '',
+            'prefix_schema' => env('DB_SCHEMA_PREFIX', ''),
         ],
 
     ],
@@ -125,7 +136,7 @@ return [
 
         'options' => [
             'cluster' => env('REDIS_CLUSTER', 'redis'),
-            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_database_'),
+            'prefix' => env('REDIS_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_database_'),
         ],
 
         'default' => [
