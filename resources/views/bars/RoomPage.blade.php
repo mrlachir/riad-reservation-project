@@ -101,6 +101,9 @@
                     <a href="{{route('confirmmation')}}">
                         <input value="Book Now" type="button" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300"/>
                     </a>
+                    <a href="{{route('confirmmation')}}">
+                        <input value="Not available" type="button" style="background-color: #ccc; cursor: not-allowed;" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300"/>
+                    </a>
                 </form>
                 <!-- What's Included -->
         <div class="mt-12 mb-12">
