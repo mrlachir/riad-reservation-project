@@ -20,6 +20,9 @@
             align-items: flex-start; /* Align to top */
             flex-direction: column;
             padding-top: 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .container {
