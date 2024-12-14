@@ -41,7 +41,7 @@
         }
 
         /* Search & Filters Section */
-        .search-filter {
+        /* .search-filter {
             display: flex;
             justify-content: space-between;
             padding: 20px;
@@ -72,7 +72,89 @@
 
         .search-filter button:hover {
             background-color: #7f6b20;
-        }
+        } */
+
+        /* Search & Filters Section */
+.search-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+/* Styling the inputs and selects */
+.search-filter input, 
+.search-filter select, 
+.search-filter .price-range input {
+    padding: 12px;
+    width: 220px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+}
+
+.search-filter input:focus,
+.search-filter select:focus,
+.search-filter .price-range input:focus {
+    border-color: #b18f2a;
+    background-color: #fff;
+    outline: none;
+}
+
+/* Price Range Input Styling */
+.price-range {
+    display: flex;
+    gap: 10px;
+}
+
+/* Button Styling */
+.search-filter button {
+    padding: 12px 25px;
+    background-color: #b18f2a;
+    color: white;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+}
+
+.search-filter button:hover {
+    background-color: #7f6b20;
+}
+
+.search-filter button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .search-filter {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-filter input,
+    .search-filter select,
+    .price-range input {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .search-filter button {
+        width: 100%;
+    }
+}
+
 
         /* Rooms Display Section */
         .rooms-container {
@@ -142,8 +224,11 @@
     </style>
 
 <header>
-    <h1>Room Listings</h1>
+    <h1>Rooms</h1>
 </header>
+
+<!-- Search & Filters Section -->
+
 
 <!-- Search & Filters Section -->
 <section class="search-filter">
@@ -168,6 +253,7 @@
 
     <button onclick="applyFilters()">Apply Filters</button>
 </section>
+
 
 <!-- Rooms Display Section -->
 <section class="rooms-container" id="rooms-container">

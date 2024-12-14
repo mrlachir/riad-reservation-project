@@ -283,7 +283,7 @@ a {
             </div>
         </div>
         <div class="discover-more">
-            <a href="{{ route('room.listings') }}" class="discover-more-btn">Discover More Activities</a>
+            <a href="{{ route('activities.listings') }}" class="discover-more-btn">Discover More Activities</a>
         </div>
     </section>
 
