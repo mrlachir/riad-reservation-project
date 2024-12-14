@@ -57,47 +57,34 @@
             background-color: #b18f2a;
         }
 
-        .room-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
         }
 
-        .room-card {
-            background: white;
+        table th,
+        table td {
             border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
         }
 
         .room-card img {
-            width: 100%;
-            border-radius: 10px;
-            height: 200px;
+            width: 100px; /* Image size */
+            height: 100px;
             object-fit: cover;
-            margin-bottom: 10px;
+            margin-right: 10px;
+            border-radius: 10px;
         }
 
-        .room-card h3 {
-            margin: 10px 0;
-            font-family: 'Cormorant Garamond', serif;
-            color: #2c3e50;
-        }
-
-        .room-card p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .room-card .actions {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .room-card .actions button {
+        .actions button {
             padding: 8px 15px;
             border: none;
             border-radius: 5px;
@@ -106,17 +93,17 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        .room-card .actions .edit-btn {
+        .actions .edit-btn {
             background-color: #2196F3;
             color: white;
         }
 
-        .room-card .actions .delete-btn {
+        .actions .delete-btn {
             background-color: #f44336;
             color: white;
         }
 
-        .room-card .actions button:hover {
+        .actions button:hover {
             opacity: 0.9;
         }
 
@@ -186,9 +173,22 @@
             <button id="addRoomBtn">Add New Room</button>
         </div>
 
-        <div class="room-list" id="roomList">
-            <!-- Room cards dynamically inserted here -->
-        </div>
+        <!-- Room List Table -->
+        <table id="roomList">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Room Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Availability</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Room rows dynamically inserted here -->
+            </tbody>
+        </table>
     </div>
 
     <!-- Add/Edit Room Modal -->
@@ -210,10 +210,10 @@
         const roomModal = document.getElementById('roomModal');
         const closeModalBtn = document.getElementById('closeModalBtn');
         const saveRoomBtn = document.getElementById('saveRoomBtn');
-        const roomList = document.getElementById('roomList');
+        const roomList = document.getElementById('roomList').getElementsByTagName('tbody')[0];
 
         let isEditing = false;
-        let currentEditingCard = null;
+        let currentEditingRow = null;
 
         // Open Modal
         addRoomBtn.addEventListener('click', () => {
@@ -237,10 +237,10 @@
             const image = document.getElementById('roomImage').files[0];
 
             if (name && description && price && availability) {
-                if (isEditing && currentEditingCard) {
-                    updateRoomCard(currentEditingCard, name, description, price, availability, image);
+                if (isEditing && currentEditingRow) {
+                    updateRoomRow(currentEditingRow, name, description, price, availability, image);
                 } else {
-                    createRoomCard(name, description, price, availability, image);
+                    createRoomRow(name, description, price, availability, image);
                 }
                 roomModal.classList.remove('active');
             } else {
@@ -248,61 +248,60 @@
             }
         });
 
-        // Create Room Card
-        function createRoomCard(name, description, price, availability, image) {
-            const card = document.createElement('div');
-            card.classList.add('room-card');
+        // Create Room Row in the Table
+        function createRoomRow(name, description, price, availability, image) {
+            const row = document.createElement('tr');
 
-            const imageURL = image ? URL.createObjectURL(image) : 'https://via.placeholder.com/350x250';
+            const imageURL = image ? URL.createObjectURL(image) : 'https://via.placeholder.com/100';
 
-            card.innerHTML = `
-                <img src="${imageURL}" alt="Room Image">
-                <h3>${name}</h3>
-                <p>${description}</p>
-                <p>Price: $${price}/night</p>
-                <p>Availability: ${availability}</p>
-                <div class="actions">
+            row.innerHTML = `
+                <td><img src="${imageURL}" alt="Room Image"></td>
+                <td>${name}</td>
+                <td>${description}</td>
+                <td>$${price}</td>
+                <td>${availability}</td>
+                <td class="actions">
                     <button class="edit-btn">Edit</button>
                     <button class="delete-btn">Delete</button>
-                </div>
+                </td>
             `;
 
             // Edit and Delete Handlers
-            card.querySelector('.edit-btn').addEventListener('click', () => {
-                openEditModal(card);
+            row.querySelector('.edit-btn').addEventListener('click', () => {
+                openEditModal(row);
             });
 
-            card.querySelector('.delete-btn').addEventListener('click', () => {
+            row.querySelector('.delete-btn').addEventListener('click', () => {
                 if (confirm('Are you sure you want to delete this room?')) {
-                    card.remove();
+                    row.remove();
                 }
             });
 
-            roomList.appendChild(card);
+            roomList.appendChild(row);
         }
 
-        // Update Room Card
-        function updateRoomCard(card, name, description, price, availability, image) {
-            const imageURL = image ? URL.createObjectURL(image) : card.querySelector('img').src;
+        // Update Room Row in the Table
+        function updateRoomRow(row, name, description, price, availability, image) {
+            const imageURL = image ? URL.createObjectURL(image) : row.querySelector('img').src;
 
-            card.querySelector('img').src = imageURL;
-            card.querySelector('h3').textContent = name;
-            card.querySelector('p:nth-of-type(1)').textContent = description;
-            card.querySelector('p:nth-of-type(2)').textContent = `Price: $${price}/night`;
-            card.querySelector('p:nth-of-type(3)').textContent = `Availability: ${availability}`;
+            row.querySelector('img').src = imageURL;
+            row.querySelector('td:nth-child(2)').textContent = name;
+            row.querySelector('td:nth-child(3)').textContent = description;
+            row.querySelector('td:nth-child(4)').textContent = `$${price}`;
+            row.querySelector('td:nth-child(5)').textContent = availability;
         }
 
         // Open Edit Modal
-        function openEditModal(card) {
+        function openEditModal(row) {
             roomModal.classList.add('active');
             document.getElementById('modalTitle').textContent = 'Edit Room';
             isEditing = true;
-            currentEditingCard = card;
+            currentEditingRow = row;
 
-            document.getElementById('roomName').value = card.querySelector('h3').textContent;
-            document.getElementById('roomDescription').value = card.querySelector('p:nth-of-type(1)').textContent;
-            document.getElementById('roomPrice').value = card.querySelector('p:nth-of-type(2)').textContent.replace('Price: $', '').replace('/night', '');
-            document.getElementById('roomAvailability').value = card.querySelector('p:nth-of-type(3)').textContent.replace('Availability: ', '');
+            document.getElementById('roomName').value = row.querySelector('td:nth-child(2)').textContent;
+            document.getElementById('roomDescription').value = row.querySelector('td:nth-child(3)').textContent;
+            document.getElementById('roomPrice').value = row.querySelector('td:nth-child(4)').textContent.replace('$', '');
+            document.getElementById('roomAvailability').value = row.querySelector('td:nth-child(5)').textContent;
         }
 
         // Clear Modal Fields
