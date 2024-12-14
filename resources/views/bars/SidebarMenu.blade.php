@@ -189,11 +189,11 @@
         </div>
         <nav class="sidebar-nav">
             <ul>
-                <li><a href="{{ route('Dashboard.overview') }}" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="{{ route('dashboard.overview') }}" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
                 <li><a href="{{ route('manage.rooms') }}" class="sidebar-link"><i class="fas fa-bed"></i> Manage Rooms</a></li>
                 <li><a href="{{ route('manage.users') }}" class="sidebar-link"><i class="fas fa-users"></i> Manage Users</a></li>
                 <li><a href="{{ route('manage.activities') }}" class="sidebar-link"><i class="fas fa-cogs"></i> Manage Activities</a></li>
-                <li><a href="{{ route('home.page') }}" class="sidebar-link"><i class="fas fa-home"></i> Manage Home</a></li>
+                <li><a href="{{ route('manage.homepage') }}" class="sidebar-link"><i class="fas fa-home"></i> Manage Home</a></li>
             </ul>
         </nav>
     </div>

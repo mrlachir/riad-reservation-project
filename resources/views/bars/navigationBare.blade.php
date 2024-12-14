@@ -139,7 +139,7 @@
             border-color: #b18f2a;
         }
     </style>
-
+ 
 
     <!-- Navbar -->
     <nav class="navbar">
@@ -155,8 +155,8 @@
         </ul>
 
         <div class="navbar-auth">
-            <a href="{{route('login')}}" class="btn-navbar btn-login-navbar">Sign up</a>
-            <a href="{{route('profile.page')}}" class="btn-navbar btn-nav">Profile</a>
+            <a href="/login" class="btn-navbar btn-login-navbar">Sign up</a>
+            <a href="/profile/page" class="btn-navbar btn-nav">Profile</a>
         </div>
     </nav>
 
