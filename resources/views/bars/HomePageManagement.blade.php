@@ -161,6 +161,12 @@
                 <option value="activity3">Activity 3</option>
                 <option value="activity4">Activity 4</option>
             </select>
+            <select id="activitiesSelection" name="activities">
+                <option value="activity1">Activity 1</option>
+                <option value="activity2">Activity 2</option>
+                <option value="activity3">Activity 3</option>
+                <option value="activity4">Activity 4</option>
+            </select>
 
             <label for="roomsSelection">Select 3 Rooms</label>
             <select id="roomsSelection" name="rooms">
