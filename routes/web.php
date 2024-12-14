@@ -63,6 +63,10 @@ Route::get('/home/page', function () {
     return view('bars.homepage');
 })->name('home.page');
 
+Route::get('/Dashboard/overview', function () {
+    return view('bars.DashboardOverview');
+})->name('Dashboard.overview');
+
 Route::get('/manage/activities', function () {
     return view('bars.ManageActivities');
 })->name('manage.activities');
