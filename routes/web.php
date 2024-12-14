@@ -1,6 +1,14 @@
 <?php
 
+
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\ActivityController;
+use App\Http\Controllers\BookingController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +22,46 @@ use Illuminate\Support\Facades\Route;
 | zakaria
 */
 // hello this test of adding from another device mohammed lachir
+// Routes pour les pages statiques
+Route::get('/', function () {
+    return view('bars.HomePage');
+})->name('home.page');
+
+Route::get('/about', function () {
+    return view('bars.AboutUsPage');
+})->name('about.page');
+
+Route::get('/contact', [ContactController::class, 'index'])->name('contact.page');
+
+// Routes protégées pour le dashboard
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
+
+// Routes pour Rooms (Gestion des chambres)
+Route::resource('rooms', RoomController::class);
+
+// Routes pour Activities (Gestion des activités)
+Route::resource('activities', ActivityController::class);
+
+// Routes pour Bookings (Gestion des réservations)
+Route::resource('bookings', BookingController::class);
+
+// Routes pour Reviews (Gestion des avis)
+Route::resource('reviews', ReviewController::class);
+
+// Routes pour Users (Gestion des utilisateurs)
+Route::resource('users', UserController::class);
+
+// Routes pour le profil utilisateur
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+
+
 Route::get('/', function () {
     return view('bars.HomePage');
 })->name('home.page');
@@ -119,3 +167,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+
+
+
+
+
+
+
