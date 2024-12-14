@@ -1,3 +1,4 @@
+@include('bars.navigationBare')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -176,3 +177,4 @@ body {
     </div>
 </body>
 </html>
+@include('bars.Footer')

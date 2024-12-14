@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riad Booking Navigation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-</head>
-<style>
-    
- * {
+
+    <style>
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -19,6 +11,7 @@
             line-height: 1.6;
             background-color: #f9f5f0;
             color: #4a4a4a;
+            /* padding-top: 80px; Adjust this value to the height of the navbar */
         }
 
         /* Luxurious Navigation Styles */
@@ -28,14 +21,23 @@
             align-items: center;
             padding: 1.5rem 7%;
             background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            position: fixed;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             width: 100%;
-            top: 0;
             z-index: 1000;
             transition: all 0.3s ease;
         }
 
+        /* Initially non-fixed navbar */
+        .navbar.scrolled {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: stronger shadow when fixed */
+        }
+
+        /* Styling for the logo */
         .navbar-logo {
             display: flex;
             align-items: center;
@@ -58,6 +60,7 @@
             letter-spacing: 1px;
         }
 
+        /* Navbar menu styling */
         .navbar-menu {
             display: flex;
             list-style: none;
@@ -96,13 +99,14 @@
             left: 0;
         }
 
+        /* Navbar auth section */
         .navbar-auth {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        .btn {
+        .btn-navbar {
             text-decoration: none;
             padding: 10px 20px;
             border-radius: 25px;
@@ -113,33 +117,34 @@
             font-size: 0.8rem;
         }
 
-        .btn-login {
+        .btn-login-navbar {
             background-color: transparent;
             border: 2px solid #2c3e50;
             color: #2c3e50;
         }
 
-        .btn-register {
+        .btn-nav {
             background-color: #d4af37;
             color: #fff;
             border: 2px solid #d4af37;
         }
 
-        .btn-login:hover {
+        .btn-login-navbar:hover {
             background-color: #2c3e50;
             color: #fff;
         }
 
-        .btn-register:hover {
+        .btn-nav:hover {
             background-color: #b18f2a;
             border-color: #b18f2a;
         }
-        
-</style>
-<body>
+    </style>
+
+
+    <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-logo">
-            <img src="/api/placeholder/60/60" alt="Riad Booking Logo">
+            <img src="https://www.alleganyco.gov/wp-content/uploads/unknown-person-icon-Image-from.png" alt="Riad Booking Logo">
             <h1>Riad Booking</h1>
         </div>
 
@@ -150,14 +155,18 @@
         </ul>
 
         <div class="navbar-auth">
-            <a href="{{route('login')}}" class="btn btn-login">Login</a>
-            <a href="{{route('registration.page')}}" class="btn btn-register">Register</a>
-            <a href="{{route('profile.page')}}" class="btn btn-register">Profile</a>
+            <a href="{{route('login')}}" class="btn-navbar btn-login-navbar">Sign up</a>
+            <a href="{{route('profile.page')}}" class="btn-navbar btn-nav">Profile</a>
         </div>
     </nav>
 
+    <!-- Page Content -->
+    <!-- <div class="content">
+        
+    </div> -->
+
+    <!-- Scroll effect for navbar -->
     <script>
-        // Scroll effect for navbar
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
@@ -167,5 +176,3 @@
             }
         });
     </script>
-</body>
-</html>
