@@ -181,10 +181,10 @@
 
 <script>
     const roomsData = [
-        { id: 1, name: 'Deluxe Room', type: 'single', price: 100, description: 'Enjoy luxury and comfort in our spacious deluxe room.', availability: 'available', image: 'https://via.placeholder.com/350x250?text=Deluxe+Room' },
-        { id: 2, name: 'Royal Suite', type: 'suite', price: 300, description: 'Indulge in royal comfort with a beautiful view of Marrakech.', availability: 'available', image: 'https://via.placeholder.com/350x250?text=Royal+Suite' },
-        { id: 3, name: 'Garden View', type: 'double', price: 150, description: 'Relax in our serene garden view room surrounded by nature.', availability: 'booked', image: 'https://via.placeholder.com/350x250?text=Garden+View' },
-        { id: 4, name: 'Standard Room', type: 'single', price: 80, description: 'Affordable yet comfortable single room perfect for solo travelers.', availability: 'available', image: 'https://via.placeholder.com/350x250?text=Standard+Room' },
+        { id: 1, name: 'Deluxe Room', type: 'single', price: 100, description: 'Enjoy luxury and comfort in our spacious deluxe room.', availability: 'available', image: 'https://www.angsana.com/assets/2021-12/riad-bab-firdaus-deluxe-room.jpg' },
+        { id: 2, name: 'Royal Suite', type: 'suite', price: 300, description: 'Indulge in royal comfort with a beautiful view of Marrakech.', availability: 'available', image: 'https://riadfes.com/_novaimg/4634126-1425596_0_207_2200_1199_2200_1200.rc.jpg' },
+        { id: 3, name: 'Garden View', type: 'double', price: 150, description: 'Relax in our serene garden view room surrounded by nature.', availability: 'booked', image: 'https://www.telegraph.co.uk/content/dam/Travel/hotels/africa/morocco/marrakech/riad-les-yeux-bleus-marrakech-morocco-p-xlarge.jpg' },
+        { id: 4, name: 'Standard Room', type: 'single', price: 80, description: 'Affordable yet comfortable single room perfect for solo travelers.', availability: 'available', image: 'https://th.bing.com/th/id/OIP.rbGH9RagQPfRbe3nZCrmaQHaKD?w=768&h=1042&rs=1&pid=ImgDetMain' },
     ];
 
     // Function to render rooms
@@ -201,7 +201,7 @@
                 <p>${room.description}</p>
                 <p><strong>$${room.price}</strong></p>
                 <p><strong>Availability:</strong> ${room.availability}</p>
-                <a href="/rooms/${room.id}" class="btn-book" ${room.availability === 'booked' ? 'style="background-color: #ccc; cursor: not-allowed;"' : ''}>Book Now</a>
+                <a href="{{route('room.page')}}" class="btn-book" ${room.availability === 'booked' ? 'style="background-color: #ccc; cursor: not-allowed;"' : ''}>Book Now</a>
             `;
             container.appendChild(card);
         });
