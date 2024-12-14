@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        
         body {
             font-family: 'Montserrat', sans-serif;
         }
@@ -78,8 +79,11 @@
                             </select>
                         </div>
                     </div>
-                    <button href="{{route('')}}" class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300">
-                        Book Now
+                     
+                    <button class="w-full mt-4 bg-yellow-500 text-white py-3 rounded-md hover:bg-yellow-600 transition duration-300">
+                       <a href="{{route('confirmmation')}}">
+                     Book Now
+                     </a>
                     </button>
                 </form>
             </div>
@@ -118,13 +122,41 @@
             </ul>
         </div>
 
-        <!-- Reviews Section -->
-        <div class="mb-12">
+       <!-- Reviews Section -->
+       <div id="reviews" class="mb-12">
             <div class="flex justify-between items-center mb-6">
                 <h2 class="section-title text-2xl font-bold text-gray-800">Guest Reviews</h2>
-                <button href="{{route('')}}" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
+                <button id="writeReviewBtn" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-md hover:bg-gray-200">
                     Write a Review
                 </button>
+            </div>
+
+            <!-- Write Review Form -->
+            <div id="writeReviewForm" class="hidden bg-white p-6 rounded-lg shadow-md mb-6">
+                <h3 class="font-bold text-gray-800 mb-4">Share Your Experience</h3>
+                <form>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Your Name</label>
+                        <input type="text" class="w-full px-3 py-2 border rounded-md" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Rating</label>
+                        <select class="w-full px-3 py-2 border rounded-md">
+                            <option>5 - Excellent</option>
+                            <option>4 - Good</option>
+                            <option>3 - Average</option>
+                            <option>2 - Poor</option>
+                            <option>1 - Terrible</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 mb-2">Your Review</label>
+                        <textarea class="w-full px-3 py-2 border rounded-md" rows="4" placeholder="Write your review..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-yellow-500 text-white px-6 py-2 rounded-md hover:bg-yellow-600 transition duration-300">
+                        Submit Review
+                    </button>
+                </form>
             </div>
 
             <!-- Review Cards -->
@@ -139,18 +171,6 @@
                                 <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                                 </svg>
-                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
-                                <svg class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                                </svg>
                             </div>
                         </div>
                     </div>
@@ -158,6 +178,19 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <script>
+        document.getElementById('writeReviewBtn').addEventListener('click', function() {
+            const form = document.getElementById('writeReviewForm');
+            if (form.classList.contains('hidden')) {
+                form.classList.remove('hidden');
+            } else {
+                form.classList.add('hidden');
+            }
+        });
+    </script>
+
 
         <!-- Related Activities -->
         <div>

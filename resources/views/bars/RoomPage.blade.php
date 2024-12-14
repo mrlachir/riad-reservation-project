@@ -311,22 +311,22 @@ footer p {
         <h2>Recommended Activities</h2>
         <div class="activity-cards">
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Spa">
+                <img src="https://th.bing.com/th/id/OIP.aqf23yeCRd81xiItnO-i4gHaEM?rs=1&pid=ImgDetMain" alt="Spa">
                 <h3>Spa & Wellness</h3>
                 <p>Relax with a soothing massage or spa treatment to unwind after a long day.</p>
-                <a href="/activities/spa" class="btn btn-learn-more">Learn More</a>
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="City Tour">
+                <img src="https://ourrealmorocco.com/wp-content/uploads/2018/08/Marrakesh-tour-1.jpg" alt="City Tour">
                 <h3>Cultural City Tour</h3>
                 <p>Explore the history and beauty of the city on a guided tour through the old town.</p>
-                <a href="/activities/tour" class="btn btn-learn-more">Learn More</a>
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Cooking Class">
+                <img src="https://www.moroccohappinesstours.com/photos/activity-moroccan-cooking-class-in-the-medina-of-marrakech/04.jpg" alt="Cooking Class">
                 <h3>Moroccan Cooking Class</h3>
                 <p>Learn how to prepare delicious Moroccan dishes in an interactive cooking class.</p>
-                <a href="/activities/cooking" class="btn btn-learn-more">Learn More</a>
+                <a href="{{route('activity.page')}}" class="btn btn-learn-more">Learn More</a>
             </div>
         </div>
     </section>

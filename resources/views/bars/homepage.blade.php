@@ -134,7 +134,7 @@ body {
 
 .activity-card img {
     width: 100%;
-    height: 200px;
+    height: 500px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -207,7 +207,7 @@ body {
     <!-- Riad Image & Info Section -->
     <section class="riad-info">
         <div class="riad-image">
-            <img src="https://via.placeholder.com/1920x800" alt="Riad Image">
+            <img src="https://sf1.mariefranceasia.com/wp-content/uploads/sites/7/2018/03/marrakech-nira.jpg" alt="Riad Image">
             <div class="overlay">
                 <h2>A peaceful escape in the heart of Marrakech</h2>
                 <a href="{{ route('room.listings') }}" class="btn btn-register">Go to Rooms Page</a>
@@ -221,19 +221,19 @@ body {
         <h2>Featured Rooms</h2>
         <div class="room-cards">
             <div class="room-card">
-                <img src="https://via.placeholder.com/350x250" alt="Room 1">
+                <img src="https://rootsabroadtravel.com/wp-content/uploads/2022/12/Riad-Assala-04.jpg" alt="Room 1">
                 <h3>Deluxe Room</h3>
                 <p>Enjoy luxury and comfort in our spacious deluxe room.</p>
                 <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
             </div>
             <div class="room-card">
-                <img src="https://via.placeholder.com/350x250" alt="Room 2">
+                <img src="https://cache.marriott.com/marriottassets/marriott/SVQLC/svqlc-victoria-9285-hor-clsc.jpg" alt="Room 2">
                 <h3>Royal Suite</h3>
                 <p>Indulge in royal comfort with a beautiful view of Marrakech.</p>
                 <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
             </div>
             <div class="room-card">
-                <img src="https://via.placeholder.com/350x250" alt="Room 3">
+                <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/494340449.jpg?k=6329668db8ad5b0158874e92172066581a807025ce1f67f1e24e2b481d8aa207&o=&hp=1" alt="Room 3">
                 <h3>Garden View</h3>
                 <p>Relax in our serene garden view room surrounded by nature.</p>
                 <a href="{{ route('room.page') }}" class="btn btn-register">Book Now</a>
@@ -247,13 +247,13 @@ body {
         <h2>Featured Activities</h2>
         <div class="activity-cards">
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Spa">
+                <img src="https://www.riad-sindibad.com/wp-content/uploads/2020/10/DSC_1801.jpg" alt="Spa">
                 <h3>Relaxing Spa</h3>
                 <p>Rejuvenate your senses with a calming spa experience.</p>
                 <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
             </div>
             <div class="activity-card">
-                <img src="https://via.placeholder.com/350x250" alt="Tours">
+                <img src="https://www.gboomoroccotours.com/wp-content/uploads/2020/10/241032722_2956237934645201_3699360125521303792_n.jpg" alt="Tours">
                 <h3>Cultural Tours</h3>
                 <p>Explore the rich history and culture of Marrakech with our guided tours.</p>
                 <a href="{{ route('activities.listings') }}" class="btn btn-register">Go To Activities</a>
