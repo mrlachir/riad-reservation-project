@@ -1,3 +1,5 @@
+@include('bars.SidebarMenu');
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +13,16 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
+        } 
 
         /* Body Styling */
-        body {
+        /* body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             background-color: #f9f5f0;
             color: #4a4a4a;
             padding: 20px;
-        }
+        } */
 
         .container {
             max-width: 1200px;

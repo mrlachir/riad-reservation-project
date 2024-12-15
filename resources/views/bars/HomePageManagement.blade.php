@@ -1,3 +1,5 @@
+@include('bars.SidebarMenu');
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,12 +14,7 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            background-color: #f9f5f0;
-            color: #4a4a4a;
-        }
+
 
         /* Header Section */
         .header {

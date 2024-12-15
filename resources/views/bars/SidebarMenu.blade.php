@@ -7,8 +7,6 @@
     <title>Riad Dashboard Overview</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-</head>
-<body>
     <style>
         /* General Styles */
         body {
@@ -16,71 +14,68 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            display: flex;
+            /* display: flex; */
+            flex-direction: column;
         }
 
-        /* Sidebar Styles */
-        .sidebar {
-            width: 250px;
-            height: 100vh;
+        /* Navbar Styles */
+        .navbar {
+            
+            width: 100%;
             background-color: #1f6a7b; /* Moroccan Blue */
             color: #fff;
-            padding: 20px;
-            position: fixed;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* position: fixed; */
+            top: 0;
+            left: 0;
+            z-index: 100;
         }
 
-        .sidebar-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .sidebar-title {
+        .navbar .navbar-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: bold;
             color: #fff;
         }
 
-        /* Sidebar Navigation */
-        .sidebar-nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .sidebar-nav ul li {
-            margin: 15px 0;
-        }
-
-        .sidebar-nav ul li a {
+        .navbar-nav {
             display: flex;
-            align-items: center;
-            padding: 12px 15px;
+            gap: 20px;
+            margin-right: 20%;
+        }
+
+        .navbar-nav a {
             text-decoration: none;
             color: #fff;
             font-size: 1.1rem;
+            padding: 12px 15px;
             border-radius: 8px;
+            display: flex;
+            align-items: center;
             transition: background-color 0.3s;
         }
 
-        .sidebar-nav ul li a:hover {
+        .navbar-nav a:hover {
             background-color: #004d5b; /* Darker Blue */
         }
 
-        .sidebar-nav ul li a i {
+        .navbar-nav a.active {
+            background-color: #d78f2a; /* Moroccan Terracotta for active links */
+        }
+
+        .navbar-nav a i {
             margin-right: 10px;
             font-size: 1.4rem;
         }
 
-        /* Active Link */
-        .sidebar-nav ul li a.active {
-            background-color: #d78f2a; /* Moroccan Terracotta for active links */
-        }
-
         /* Content Area */
         .content {
-            margin-left: 250px;
+            margin-top: 80px; /* Space for the fixed navbar */
             padding: 20px;
-            width: calc(100% - 250px); /* Adjusting content area based on sidebar */
+            width: 100%;
         }
 
         /* Dashboard Header */
@@ -152,50 +147,22 @@
             color: #888;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 200px;
-                padding: 15px;
-            }
 
-            .content {
-                margin-left: 200px;
-                width: calc(100% - 200px);
-            }
-
-            .key-statistics {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .stat-card {
-                width: 80%;
-                margin-bottom: 20px;
-            }
-
-            .stat-header h3 {
-                font-size: 1.25rem;
-            }
-
-            .stat-value .value {
-                font-size: 2rem;
-            }
-        }
     </style>
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <h2 class="sidebar-title">Riad Dashboard</h2>
-        </div>
-        <nav class="sidebar-nav">
-            <ul>
-                <li><a href="{{ route('dashboard.overview') }}" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                <li><a href="{{ route('manage.rooms') }}" class="sidebar-link"><i class="fas fa-bed"></i> Manage Rooms</a></li>
-                <li><a href="{{ route('manage.users') }}" class="sidebar-link"><i class="fas fa-users"></i> Manage Users</a></li>
-                <li><a href="{{ route('manage.activities') }}" class="sidebar-link"><i class="fas fa-cogs"></i> Manage Activities</a></li>
-                <li><a href="{{ route('manage.homepage') }}" class="sidebar-link"><i class="fas fa-home"></i> Manage Home</a></li>
-            </ul>
-        </nav>
-    </div>
+</head>
+<body>
 
-    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-title">Riad Dashboard</div>
+        <div class="navbar-nav">
+            <a href="{{ route('dashboard.overview') }}" class="sidebar-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+            <a href="{{ route('manage.rooms') }}" class="sidebar-link"><i class="fas fa-bed"></i> Manage Rooms</a>
+            <a href="{{ route('manage.users') }}" class="sidebar-link"><i class="fas fa-users"></i> Manage Users</a>
+            <a href="{{ route('manage.activities') }}" class="sidebar-link"><i class="fas fa-cogs"></i> Manage Activities</a>
+            <a href="{{ route('manage.homepage') }}" class="sidebar-link"><i class="fas fa-home"></i> Manage Home</a>
+        </div>
+    </nav>
+
+</body>
+</html>

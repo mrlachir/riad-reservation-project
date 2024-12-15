@@ -1,3 +1,4 @@
+@include('bars.SidebarMenu');
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,12 +21,7 @@
         /* Removes any background */
     }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            background-color: #f9f5f0;
-            color: #4a4a4a;
-        }
+
 
         /* Header Styles */
         .header {

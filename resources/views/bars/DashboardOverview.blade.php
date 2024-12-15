@@ -1,3 +1,4 @@
+@include('bars.SidebarMenu');
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,115 +12,142 @@
 <body>
     <style>
         /* General Styles */
-body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
+        /* Container for the Dashboard */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        } 
 
-/* Container for the Dashboard */
-.container {
-    width: 85%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
+        /* Dashboard Header */
+        .dashboard-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #1f6a7b; /* Moroccan Blue */
+            text-align: center;
+            margin-bottom: 30px;
+        }
 
-/* Dashboard Header */
-.dashboard-header h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    color: #1f6a7b; /* Moroccan Blue */
-    text-align: center;
-    margin-bottom: 30px;
-}
+        /* Key Statistics Section */
+        .key-statistics {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
 
-/* Key Statistics Section */
-.key-statistics {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
+        /* Individual Stat Card */
+        .stat-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 30%;
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
 
-/* Individual Stat Card */
-.stat-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    padding: 20px;
-    transition: transform 0.3s ease;
-}
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
 
-.stat-card:hover {
-    transform: translateY(-10px);
-}
+        .stat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
-.stat-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 15px;
-}
+        .stat-header i {
+            font-size: 2rem;
+            color: #1f6a7b; /* Moroccan Blue */
+            margin-right: 15px;
+        }
 
-.stat-header i {
-    font-size: 2rem;
-    color: #1f6a7b; /* Moroccan Blue */
-    margin-right: 15px;
-}
+        .stat-header h3 {
+            font-size: 1.5rem;
+            color: #333;
+            font-weight: bold;
+        }
 
-.stat-header h3 {
-    font-size: 1.5rem;
-    color: #333;
-    font-weight: bold;
-}
+        .stat-value {
+            text-align: center;
+            margin: 15px 0;
+        }
 
-.stat-value {
-    text-align: center;
-    margin: 15px 0;
-}
+        .stat-value .value {
+            font-size: 2.5rem;
+            color: #d78f2a; /* Moroccan Terracotta */
+            font-weight: bold;
+        }
 
-.stat-value .value {
-    font-size: 2.5rem;
-    color: #d78f2a; /* Moroccan Terracotta */
-    font-weight: bold;
-}
+        .stat-value .period {
+            font-size: 1rem;
+            color: #555;
+        }
 
-.stat-value .period {
-    font-size: 1rem;
-    color: #555;
-}
+        .stat-footer {
+            font-size: 0.9rem;
+            color: #888;
+        }
 
-.stat-footer {
-    font-size: 0.9rem;
-    color: #888;
-}
+        /* Bookings and Reviews Section */
+        .bookings-reviews {
+            margin-top: 30px;
+        }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .key-statistics {
-        flex-direction: column;
-        align-items: center;
-    }
+        .bookings-reviews .section-header {
+            font-size: 1.8rem;
+            color: #1f6a7b;
+            margin-bottom: 20px;
+        }
 
-    .stat-card {
-        width: 80%;
-        margin-bottom: 20px;
-    }
+        .booking-item, .review-item {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    .stat-header h3 {
-        font-size: 1.25rem;
-    }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-    .stat-value .value {
-        font-size: 2rem;
-    }
-}
+        .pagination button {
+            background-color: #1f6a7b;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
+        .pagination button:hover {
+            background-color: #004d5b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .key-statistics {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .stat-card {
+                width: 80%;
+                margin-bottom: 20px;
+            }
+
+            .stat-header h3 {
+                font-size: 1.25rem;
+            }
+
+            .stat-value .value {
+                font-size: 2rem;
+            }
+        }
     </style>
     <div class="container">
         <div class="dashboard-header">
@@ -173,6 +201,55 @@ body {
             </div>
         </div>
 
+        <!-- Bookings Section -->
+        <div class="bookings-reviews">
+            <div class="section-header">All Bookings</div>
+            <div class="booking-item">
+                <p><strong>Booking #1</strong> - Date: 2024-12-15 - Guest: John Doe</p>
+            </div>
+            <div class="booking-item">
+                <p><strong>Booking #2</strong> - Date: 2024-12-14 - Guest: Jane Doe</p>
+            </div>
+            <div class="booking-item">
+                <p><strong>Booking #3</strong> - Date: 2024-12-13 - Guest: Mark Smith</p>
+            </div>
+            <div class="booking-item">
+                <p><strong>Booking #4</strong> - Date: 2024-12-12 - Guest: Lisa Brown</p>
+            </div>
+            <div class="booking-item">
+                <p><strong>Booking #5</strong> - Date: 2024-12-11 - Guest: Peter White</p>
+            </div>
+            
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button>Next</button>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="section-header">All Reviews</div>
+            <div class="review-item">
+                <p><strong>Review #1</strong> - Rating: 5/5 - "Great service!"</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Review #2</strong> - Rating: 4/5 - "Very good experience!"</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Review #3</strong> - Rating: 3/5 - "Good, but room for improvement."</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Review #4</strong> - Rating: 5/5 - "Excellent stay!"</p>
+            </div>
+            <div class="review-item">
+                <p><strong>Review #5</strong> - Rating: 4/5 - "Nice but could be better."</p>
+            </div>
+        
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button>Next</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>

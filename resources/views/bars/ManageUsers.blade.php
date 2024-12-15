@@ -1,3 +1,5 @@
+@include('bars.SidebarMenu');
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,22 +8,7 @@
     <title>User Management - Riad Theme</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #6A4C3B;
-            --secondary-color: #D4B483;
-            --background-color: #F1E4D3;
-            --text-color: #2C2A29;
-            --mosaic-pattern: linear-gradient(
-                45deg, 
-                rgba(106, 76, 59, 0.1) 25%, 
-                transparent 25%, 
-                transparent 50%, 
-                rgba(106, 76, 59, 0.1) 50%, 
-                rgba(106, 76, 59, 0.1) 75%, 
-                transparent 75%, 
-                transparent
-            );
-        }
+
 
         * {
             box-sizing: border-box;
@@ -29,14 +16,7 @@
             padding: 0;
         }
 
-        body {
-            font-family: 'Lora', serif;
-            background-color: var(--background-color);
-            background-image: var(--mosaic-pattern);
-            background-size: 40px 40px;
-            color: var(--text-color);
-            line-height: 1.6;
-        }
+
 
         .dashboard {
             max-width: 900px;
