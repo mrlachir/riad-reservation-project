@@ -36,58 +36,6 @@
             color: #2c3e50;
         }
 
-        /* Hero Section */
-        .hero-section {
-            position: relative;
-            height: 80vh;
-            background-image: url('/path/to/your-image.jpg');
-            background-size: cover;
-            background-position: center;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-text {
-            z-index: 10;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-btn {
-            text-decoration: none;
-            background-color: #d4af37;
-            color: #fff;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-
-        .cta-btn:hover {
-            background-color: #b18f2a;
-        }
-
         /* Form Section for Admin Editing */
         .form-container {
             padding: 2rem 7%;
@@ -110,11 +58,22 @@
         .form-container input[type="text"],
         .form-container input[type="file"],
         .form-container select {
-            width: 100%;
             padding: 1rem;
             margin-bottom: 1rem;
             border-radius: 5px;
             border: 1px solid #ccc;
+        }
+
+        /* Make the select elements appear in one line with width 20% */
+        .form-container .select-group {
+            display: flex;
+            justify-content: space-between;
+            /* gap: 1rem; Add space between selects */
+        }
+
+        .form-container select {
+            width: 20%; /* Set width to 20% */
+            white-space: nowrap; /* Prevents the content from wrapping */
         }
 
         .form-container .btn-submit {
@@ -134,6 +93,14 @@
             background-color: #b18f2a;
             border-color: #b18f2a;
         }
+
+        #overlayText{
+            width: 50%;
+        }
+        #heroImage{
+            width: 50%;
+    
+        }
     </style>
 </head>
 <body>
@@ -142,7 +109,6 @@
     <header class="header">
         <h1>Home Page Management</h1>
     </header>
-
 
     <!-- Form Section for Admin Editing -->
     <section class="form-container">
@@ -155,48 +121,74 @@
             <input type="text" id="overlayText" name="overlayText" placeholder="Enter new text" value="A peaceful escape in the heart of Marrakech">
 
             <label for="activitiesSelection">Select 2 Activities</label>
-            <select id="activitiesSelection" name="activities">
-                <option value="activity1">Activity 1</option>
-                <option value="activity2">Activity 2</option>
-                <option value="activity3">Activity 3</option>
-                <option value="activity4">Activity 4</option>
-            </select>
-            <select id="activitiesSelection" name="activities">
-                <option value="activity1">Activity 1</option>
-                <option value="activity2">Activity 2</option>
-                <option value="activity3">Activity 3</option>
-                <option value="activity4">Activity 4</option>
-            </select>
+            <div class="select-group">
+                <select id="activitiesSelection" name="activities">
+                    <option value="activity1">Activity 1</option>
+                    <option value="activity2">Activity 2</option>
+                    <option value="activity3">Activity 3</option>
+                    <option value="activity4">Activity 4</option>
+                </select>
+                <select id="activitiesSelection2" name="activities">
+                    <option value="activity1">Activity 1</option>
+                    <option value="activity2">Activity 2</option>
+                    <option value="activity3">Activity 3</option>
+                    <option value="activity4">Activity 4</option>
+                </select>
+            </div>
 
             <label for="roomsSelection">Select 3 Rooms</label>
-            <select id="roomsSelection" name="rooms">
-                <option value="room1">Room 1</option>
-                <option value="room2">Room 2</option>
-                <option value="room3">Room 3</option>
-                <option value="room4">Room 4</option>
-            </select>
+            <div class="select-group">
+                <select id="roomsSelection" name="rooms">
+                    <option value="room1">Room 1</option>
+                    <option value="room2">Room 2</option>
+                    <option value="room3">Room 3</option>
+                    <option value="room4">Room 4</option>
+                </select>
+                <select id="roomsSelection2" name="rooms">
+                    <option value="room1">Room 1</option>
+                    <option value="room2">Room 2</option>
+                    <option value="room3">Room 3</option>
+                    <option value="room4">Room 4</option>
+                </select>
+                <select id="roomsSelection3" name="rooms">
+                    <option value="room1">Room 1</option>
+                    <option value="room2">Room 2</option>
+                    <option value="room3">Room 3</option>
+                    <option value="room4">Room 4</option>
+                </select>
+            </div>
 
             <label for="reviewsSelection">Select 4 Reviews</label>
-            <select id="reviewsSelection" name="reviews">
-                <option value="review1">Review 1</option>
-                <option value="review2">Review 2</option>
-                <option value="review3">Review 3</option>
-                <option value="review4">Review 4</option>
-            </select>
+            <div class="select-group">
+                <select id="reviewsSelection" name="reviews">
+                    <option value="review1">Review 1</option>
+                    <option value="review2">Review 2</option>
+                    <option value="review3">Review 3</option>
+                    <option value="review4">Review 4</option>
+                </select>
+                <select id="reviewsSelection2" name="reviews">
+                    <option value="review1">Review 1</option>
+                    <option value="review2">Review 2</option>
+                    <option value="review3">Review 3</option>
+                    <option value="review4">Review 4</option>
+                </select>
+                <select id="reviewsSelection3" name="reviews">
+                    <option value="review1">Review 1</option>
+                    <option value="review2">Review 2</option>
+                    <option value="review3">Review 3</option>
+                    <option value="review4">Review 4</option>
+                </select>
+                <select id="reviewsSelection4" name="reviews">
+                    <option value="review1">Review 1</option>
+                    <option value="review2">Review 2</option>
+                    <option value="review3">Review 3</option>
+                    <option value="review4">Review 4</option>
+                </select>
+            </div>
 
             <button type="submit" class="btn-submit">Save Changes</button>
         </form>
     </section>
-
-    <script>
-        // JavaScript to update the hero section text dynamically
-        const heroTextInput = document.getElementById('overlayText');
-        const heroTextDisplay = document.getElementById('heroText');
-
-        heroTextInput.addEventListener('input', function() {
-            heroTextDisplay.textContent = heroTextInput.value;
-        });
-    </script>
 
 </body>
 </html>
