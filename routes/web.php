@@ -54,7 +54,7 @@ Route::get('/Footer', function () {
     return view('bars.Footer');
 })->name('footer');
 
-Route::get('/home/page', function () {
+Route::get('/home/page/manage', function () {
     return view('bars.HomePageManagement');
 })->name('manage.homepage');
 
