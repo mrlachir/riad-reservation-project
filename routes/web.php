@@ -55,8 +55,8 @@ Route::get('/Footer', function () {
 })->name('footer');
 
 Route::get('/home/page', function () {
-    return view('bars.homepage');
-})->name('home.page');
+    return view('bars.HomePageManagement');
+})->name('manage.homepage');
 
 
 Route::get('/manage/activities', function () {
@@ -117,5 +117,3 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-require __DIR__.'/auth.php';
