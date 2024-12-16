@@ -108,6 +108,10 @@ Route::get('/confirmmation', function () {
     return view('bars.confirmmation');
 })->name('confirmmation');
 
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
